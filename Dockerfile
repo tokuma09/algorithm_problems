@@ -22,6 +22,9 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /usr/local/src/*
 
-
+# Python Libraries
+COPY requirements.txt /tmp
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r /tmp/requirements.txt
 
 CMD ["/bin/bash"]
