@@ -27,4 +27,16 @@ COPY requirements.txt /tmp
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r /tmp/requirements.txt
 
+# Julia Packages
+WORKDIR /work/
+ENV JULIA_PROJECT=/work/
+COPY ./Project.toml /work/Project.toml
+RUN rm -f ./Manifest.toml && julia -e 'using Pkg; \
+Pkg.instantiate(); \
+Pkg.precompile(); \
+' && \
+# Check Julia version \
+julia -e 'using InteractiveUtils; versioninfo()'
+
+
 CMD ["/bin/bash"]
