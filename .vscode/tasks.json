@@ -12,7 +12,9 @@
             "type": "shell",
             "command": "${workspaceFolder}/cptest.sh",
             "args": [
-                "${fileBasenameNoExtension}"
+                "${fileBasenameNoExtension}",
+                "${fileExtname}",
+                "${file}"
             ]
         }
     ]
