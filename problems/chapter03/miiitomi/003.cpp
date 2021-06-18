@@ -9,11 +9,10 @@ int main() {
     cin >> N;
     vector<int> a(N);
     for (int i = 0; i < N; i++) cin >> a.at(i);
+    
+    int minimum = INT_MAX;  // intの最大値
+    int second = INT_MAX;  // こっちも
 
-    // 2番目に小さい3値を求める.
-    // 1番小さい値が2つ以上ある場合は, 1位タイを出力する.
-    int minimum = pow(10, 9);  // 十分大きな値とする.
-    int second = pow(10, 9) + 1;  // こっちも.
     for (int i = 0; i < N; i++) {
         if (a.at(i) < minimum) {
             second = minimum;
