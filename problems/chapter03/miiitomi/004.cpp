@@ -10,8 +10,8 @@ int main() {
     vector<int> a(N);
     for (int i = 0; i < N; i++) cin >> a.at(i);
 
-    int minimum = pow(10, 9);  // 十分大きな値.
-    int maximum = -pow(10, 9);  // 十分小さな値.
+    int minimum = INT_MAX;  // intの最大値.
+    int maximum = INT_MIN;  // intの最小値.
 
     for (int i = 0; i < N; i++) {
         if (a.at(i) < minimum) minimum = a.at(i);
