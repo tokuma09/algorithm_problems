@@ -38,9 +38,4 @@ Pkg.precompile(); \
 # Check Julia version \
 julia -e 'using InteractiveUtils; versioninfo()'
 
-# Login
-COPY .env /work/.env
-COPY ./cplogin.sh /work/cplogin.sh
-RUN sh /work/cplogin.sh
-
 CMD ["/bin/bash"]
