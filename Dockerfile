@@ -38,5 +38,4 @@ Pkg.precompile(); \
 # Check Julia version \
 julia -e 'using InteractiveUtils; versioninfo()'
 
-
 CMD ["/bin/bash"]
