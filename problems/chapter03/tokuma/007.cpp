@@ -27,10 +27,11 @@ int main()
                 long long part = stoll(S_copy.substr(0, i + 1));
                 // 足し算
                 val += part;
-                for (int ind = 0; ind < (i + 1); ++ind)
-                {
-                    S_copy[ind] = '0';
-                }
+
+                // 足し算した部分は考えなくて良くなるので0で穴埋め
+                // 文字列サイズをあわせるためにi+1個の0で文字列の初期化
+                string impute(i + 1, '0');
+                S_copy.replace(0, i + 1, impute);
             }
         }
 
