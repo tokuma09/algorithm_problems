@@ -4,7 +4,7 @@
         "javascript": "node",
         "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-        "cpp": "cd $dir && g++ -O2 -std=c++14 $fileName && ./a.out",
+        "cpp": "cd $dir && g++ -O2 -std=c++14 $fileName -o $fileNameWithoutExt.out && ./$fileNameWithoutExt.out",
         "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "php": "php",
         "python": "python -u",
@@ -53,4 +53,9 @@
         "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
     },
     "python.pythonPath": "/usr/bin/python3",
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp"
+    },
 }
