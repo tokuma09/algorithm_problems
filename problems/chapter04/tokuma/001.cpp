@@ -33,10 +33,10 @@ int main()
 
     int N;
     cin >> N;
-    memo.assign(N, -1);
-    tribo(N - 1);
+    memo.assign(N + 1, -1);
+    tribo(N);
 
-    for (int i = 3; i < N; ++i)
+    for (int i = 3; i <= N; ++i)
     {
         cout << i << "項目: " << memo[i] << endl;
     }
