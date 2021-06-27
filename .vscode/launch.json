@@ -21,6 +21,22 @@
                 "<",
                 "input.txt"
             ]
+        },
+        {
+            "name": "(LLDB) Debug",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "args": [],
+            "cwd": "${fileDirname}",
+            "stdio": [
+                "input.txt"
+            ],
+            "initCommands": [
+                "settings set target.disable-aslr false"
+            ],
+            "terminal": "integrated",
+            "preLaunchTask": "g++ build active file"
         }
     ]
 }
