@@ -8,6 +8,7 @@
             "label": "g++ build active file",
             "command": "/usr/bin/g++",
             "args": [
+                "-g",
                 "-O0",
                 "-std=c++14",
                 "${file}",
