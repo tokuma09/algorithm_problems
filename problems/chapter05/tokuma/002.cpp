@@ -37,7 +37,7 @@ int main()
             {
 
                 // メモでtrueを返すなら1を入れる
-                if (memo[i - 1][w - a[i]])
+                if (memo[i - 1][w - a[i]] == 1)
                 {
                     memo[i][w] = 1;
                 }
@@ -48,7 +48,7 @@ int main()
             }
 
             // i番目を使わない場合
-            if (memo[i - 1][w])
+            if (memo[i - 1][w] == 1)
             {
                 memo[i][w] = 1;
             }
@@ -59,7 +59,7 @@ int main()
         }
     }
 
-    if (memo[N][W])
+    if (memo[N][W] == 1)
     {
         cout << "Yes" << endl;
     }
