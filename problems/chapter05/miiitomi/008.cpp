@@ -1,11 +1,10 @@
 // 立命館大学プログラミングコンテスト2018 Day1  D - 水槽
 // https://onlinejudge.u-aizu.ac.jp/beta/room.html#RitsCamp18Day1/problems/D
-// 注：解けてない
 
 #include <bits/stdc++.h>
 using namespace std;
 
-double f(int i, int j, vector<int> &s) {
+double f(int i, int j, vector<int64_t> &s) {
     return (s[j+1] - s[i] + 0.0) / (j - i + 1.0);
 }
 
@@ -14,7 +13,7 @@ int main() {
     cin >> N >> M;
     vector<int> a(N);
     for (int i = 0; i < N; i++) cin >> a[i];
-    vector<int> s(N+1, 0);
+    vector<int64_t> s(N+1, 0LL);
     for (int i = 0; i < N; i++) s[i+1] = s[i] + a[i];
 
     vector<vector<double> > dp(M, vector<double>(N, 0.0));
@@ -29,5 +28,5 @@ int main() {
         }
     }
 
-    cout << fixed << setprecision(10) << dp[M-1][N-1] << endl;
+    cout << fixed << setprecision(6) << dp[M-1][N-1] << endl;
 }
