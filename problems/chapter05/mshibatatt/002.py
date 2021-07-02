@@ -2,6 +2,7 @@ def main():
     N, W = map(int, input().split())
     a = list(map(int, input().split()))
 
+    # dp[i][j] is "Yes" if you can make j+1 from a0,...,ai else "No" 
     dp = [[None]*W for i in range(N)]
 
     for i in range(N):
