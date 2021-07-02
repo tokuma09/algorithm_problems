@@ -26,33 +26,34 @@ int main()
 
     //初期条件
     memo[0] = vector<int>(W + 1, 0);
+    memo[0][0] = 1;
+
     // 重さに関するループ, i番目までの候補で考える
     for (int i = 1; i < N + 1; ++i)
     {
         // ここで合計に対してのループ
-        for (int w = 0; w < W; ++w)
+        for (int w = 0; w < W + 1; ++w)
         {
             // i番目を使う場合
-            if (0 <= w - a[i])
+            // 添字対応のため-1しておく
+            if (0 <= w - a[i - 1])
             {
 
                 // メモでtrueを返すなら1を入れる
-                if (memo[i - 1][w - a[i]] == 1)
+                if (memo[i - 1][w - a[i - 1]] == 1)
                 {
                     memo[i][w] = 1;
                 }
-                else
-                {
-                    memo[i][w] = 0;
-                }
             }
 
-            // i番目を使わない場合
+            // i番目を使わない場合でtrueなら入れる
             if (memo[i - 1][w] == 1)
             {
                 memo[i][w] = 1;
             }
-            else
+
+            // メモ化されていなくて、かつだめだったら0を入れる
+            if (memo[i][w] == -1)
             {
                 memo[i][w] = 0;
             }
