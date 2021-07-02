@@ -12,8 +12,9 @@ def main():
             
             else:
                 dp[i][j] = "Yes" if dp[i-1][j] == "Yes" or \
-                                (a[i] < j and dp[i-1][j-a[i]] == "Yes")\
-                             else "No"
+                                (a[i] < j and dp[i-1][j-a[i]] == "Yes") or \
+                                (a[i] == j+1) \
+                              else "No"
     
     print(dp[N-1][W-1])
 
