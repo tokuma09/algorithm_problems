@@ -14,7 +14,7 @@ def main():
       else:
         dp[i][j] = True if dp[i-1][j] == True or \
         					(p[i] < j and dp[i-1][j-p[i]] == True) or \
-          					(p[i] == j) \
+          				(p[i] == j) \
         				else False
   
   output = sum(dp[N-1])
