@@ -13,7 +13,7 @@
                 "-std=c++14",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.out",
+                "${fileDirname}/${fileBasenameNoExtension}.out"
             ],
             "options": {
                 "cwd": "/usr/local/bin"
@@ -21,10 +21,7 @@
             "problemMatcher": [
                 "$g++"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build"
         },
         {
             "label": "test_atcoder_sample",
@@ -38,7 +35,8 @@
                 "${fileBasenameNoExtension}",
                 "${fileExtname}",
                 "${file}"
-            ]
+            ],
+            "problemMatcher": []
         }
     ]
 }
