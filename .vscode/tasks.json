@@ -24,13 +24,25 @@
             "group": "build"
         },
         {
-            "label": "test_atcoder_sample",
+            "label": "test atcoder samples",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "type": "shell",
             "command": "${workspaceFolder}/cptest.sh",
+            "args": [
+                "${fileBasenameNoExtension}",
+                "${fileExtname}",
+                "${file}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "submit atcoder",
+            "group": "build",
+            "type": "shell",
+            "command": "${workspaceFolder}/cpsubmit.sh",
             "args": [
                 "${fileBasenameNoExtension}",
                 "${fileExtname}",
