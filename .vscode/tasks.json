@@ -49,6 +49,18 @@
                 "${file}"
             ],
             "problemMatcher": []
+        },
+        {
+            "label": "launch Pluto",
+            "group": "build",
+            "type": "shell",
+            "command": "julia",
+            "args": [
+                "--project=.",
+                "-e",
+                "'import Pluto; Pluto.run(host=\"0.0.0.0\", require_secret_for_access=false)'"
+            ],
+            "problemMatcher": []
         }
     ]
 }
