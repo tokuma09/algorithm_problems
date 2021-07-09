@@ -13,7 +13,7 @@
                 "-std=c++14",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.out",
+                "${fileDirname}/${fileBasenameNoExtension}.out"
             ],
             "options": {
                 "cwd": "/usr/local/bin"
@@ -21,13 +21,10 @@
             "problemMatcher": [
                 "$g++"
             ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build"
         },
         {
-            "label": "test_atcoder_sample",
+            "label": "test atcoder samples",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -38,7 +35,32 @@
                 "${fileBasenameNoExtension}",
                 "${fileExtname}",
                 "${file}"
-            ]
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "submit atcoder",
+            "group": "build",
+            "type": "shell",
+            "command": "${workspaceFolder}/cpsubmit.sh",
+            "args": [
+                "${fileBasenameNoExtension}",
+                "${fileExtname}",
+                "${file}"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "launch Pluto",
+            "group": "build",
+            "type": "shell",
+            "command": "julia",
+            "args": [
+                "--project=.",
+                "-e",
+                "'import Pluto; Pluto.run(host=\"0.0.0.0\", require_secret_for_access=false)'"
+            ],
+            "problemMatcher": []
         }
     ]
 }
