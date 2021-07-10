@@ -1,5 +1,5 @@
-// AtCoder Chokudai SpeedRun 001    J - 転倒数
-// https://atcoder.jp/contests/chokudai_s001/tasks/chokudai_S001_j
+// AtCoder ARC101   D - Median of Medians
+// https://atcoder.jp/contests/arc101/tasks/arc101_b
 
 #include <bits/stdc++.h>
 using namespace std;
