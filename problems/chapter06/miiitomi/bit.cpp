@@ -12,7 +12,6 @@ struct BIT {
     }
 
     void add(int x, T a) {
-        int counter = 0;
         for (int i = x + 1; i < n; i += (i & -i)) {
             data[i] += a;
         }
