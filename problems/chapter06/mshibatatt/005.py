@@ -1,7 +1,9 @@
-def less_than_k(x, a, b, N, k):
+# https://atcoder.jp/contests/arc037/tasks/arc037_c
+
+def more_than_k(x, a, b, N, k):
     # fix a and binary search in b
     # count number of a * b < x
-    # return True if count < k otherwise False
+    # return True if count >= k otherwise False
     counter = 0
     for i in a:
         left = 0
@@ -18,7 +20,7 @@ def less_than_k(x, a, b, N, k):
             else:
                 right = mid
         counter += right
-        if counter >= k:
+        if counter < k:
             return False
     return True
 
@@ -31,14 +33,14 @@ def main():
     b.sort()
 
     left = 0
-    right = a[-1]*b[-1]
+    right = a[-1]*b[-1]+1
 
     while right - left > 1:
         mid = left + (right - left)//2
-        if less_than_k(mid, a, b, N, k):
-            left = mid
-        else:
+        if more_than_k(mid, a, b, N, k):
             right = mid
+        else:
+            left = mid
 
     print(left)
 
