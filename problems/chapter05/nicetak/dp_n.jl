@@ -12,7 +12,9 @@ function dp(l, r, as, acc_as, memo)
     elseif l == r
         return memo[l, r] = 0
     else
-        res = minimum([dp(l, i, as, acc_as, memo) + dp(i+1, r, as, acc_as, memo) + get_lr(l, r, acc_as) for i in l:r-1])
+        res = minimum([dp(l, i, as, acc_as, memo) + 
+            dp(i+1, r, as, acc_as, memo) +
+            get_lr(l, r, acc_as) for i in l:r-1])
         return memo[l, r] = res
     end
 end
