@@ -3,6 +3,14 @@
 
 using namespace std;
 
+template <class T>
+void chmin(T &a, T b)
+{
+    if (a > b)
+    {
+        a = b;
+    }
+}
 int main()
 {
 
@@ -27,8 +35,8 @@ int main()
 
     // メモ
     // その時の使った個数を入れる
-    vector<vector<int>>
-        memo(N + 1, vector<int>(W + 1, -1));
+    vector<vector<long long>>
+        memo(N + 1, vector<long long>(W + 1, 1LL << 50));
 
     //初期条件
     memo[0][0] = 0;
@@ -47,32 +55,20 @@ int main()
                 // i番目を使う場合で条件を満たすのであれば、1を足す
                 if (0 <= memo[i - 1][w - a[i - 1]])
                 {
-                    memo[i][w] = memo[i - 1][w - a[i - 1]] + 1;
+                    chmin(memo[i][w], memo[i - 1][w - a[i - 1]] + 1);
                 }
             }
 
-            // i番目を使わない場合で条件を満たすのであれば、1を足す
+            // i番目を使わない場合で条件を満たすときはたさない
             if (0 <= memo[i - 1][w])
             {
-                memo[i][w] = memo[i - 1][w] + 1;
+                chmin(memo[i][w], memo[i - 1][w]);
             }
         }
     }
 
-    // k以下に一致しているかをカウント
-    int res = 0;
-
-    // 重さに関するループ, i番目までの候補で考える
-    for (int i = 0; i < N + 1; ++i)
-    {
-        if (0 < memo[i][W]　&& memo[i][W] <= k)
-        {
-
-            ++res;
-        }
-    }
-
-    if (0 < res)
+    // これで回答をチェック
+    if (memo[N][W] <= k)
     {
         cout << "Yes" << endl;
     }
