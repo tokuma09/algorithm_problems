@@ -1,28 +1,17 @@
 # https://atcoder.jp/contests/arc037/tasks/arc037_c
 
-def more_than_k(x, a, b, N, k):
+import bisect
+
+def less_than_k(x, a, b, k):
     # fix a and binary search in b
     # count number of a * b < x
-    # return True if count >= k otherwise False
+    # return True if count < k otherwise False
     counter = 0
     for i in a:
-        left = 0
-        right = N-1
-        if i * b[0] >= x:
-            continue
-        if i * b[N-1] < x:
-            counter += N
-            continue
-        while right - left > 1:
-            mid = left + (right - left)//2
-            if i * b[mid] < x:
-                left = mid
-            else:
-                right = mid
-        counter += right
-        if counter < k:
-            return False
-    return True
+        counter += bisect.bisect_right(b, x//i)
+        if counter >= k:
+            return True
+    return False
 
 def main():
     N, k = map(int, input().split())
@@ -37,12 +26,12 @@ def main():
 
     while right - left > 1:
         mid = left + (right - left)//2
-        if more_than_k(mid, a, b, N, k):
+        if less_than_k(mid, a, b, k):
             right = mid
         else:
             left = mid
 
-    print(left)
+    print(right)
 
 if __name__=='__main__':
     main()
