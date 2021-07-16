@@ -1,15 +1,23 @@
 # https://atcoder.jp/contests/arc101/tasks/arc101_b
 from itertools import accumulate
 '''
-median of m_lr
-<=> max x s.t. n(m_lr < x) < ceil(N(N+1)/2/2)
-<=> max x s.t. count of [l,r) < ceil(N(N+1)/2/2)
-    s.t. n(a_i < x) <= n(a_j >= x) where all a in [l, r)
-<=> max x s.t. count of [l, r) < ceil(N(N+1)/2/2) s.t.  
-    s.t. 0 <= S_q_r - S_q_l where S_q_i = sum_1^i q_i, where q_i = -1 if a_i < x else 1 
-<=> max x s.t. count of [l, r) < ceil(N(N+1)/2/2) s.t.  
-    s.t. l < r and  S_q_l <= S_q_r, where S_q_i = sum_1^i q_i, where q_i = -1 if a_i < x else 1 
+median of m_lr where m_lr is median of a[l:r] (l <= r)
+<=> max x s.t. n(m_lr < x) < (N(N+1)/2)//2)+1
 
+<=> max x s.t. count of [l,r] < (N(N+1)/2)//2)+1
+    s.t. n(a_i < x) > n(a_j >= x) where all a in [l, r]
+
+<=> max x s.t. count of [l, r] < (N(N+1)/2)//2)+1  
+    s.t. S_q_r - S_q_l-1 > 0 where S_q_i = sum_1^i q_i,
+        where q_i = 1 if a_i < x else -1 
+
+<=> max x s.t. count of [l, r] < (N(N+1)/2)//2)+1
+    s.t. l <= r and  S_q_r > S_q_l-1,
+        where S_q_i = sum_1^i q_i,
+        where q_i = 1 if a_i < x else -1 
+
+The condition is True if x = min(a)
+The condition is False if x = max(a)
 '''
 class Bit():
     def __init__(self, n) -> None:
@@ -32,34 +40,25 @@ class Bit():
 # bit.add(2, 10)    # a2に10を加える
 # print(bit.sum(3)) # a1～a3の合計を返す => 10
 
-def qusai_invertion_number(a, N, bit):
-    output = 0
-    for i, e in enumerate(a):
-        bit.add(e, 1)
-        output += bit.sum(e) - 1
-        
-    return output
-
 def main():
     N = int(input())
     a = list(map(int, input().split()))
 
-    left = min(a) - 1
+    left = 1
     right = max(a) + 1
+    threshold = (N*(N+1)/2)//2 + 1
 
     while right - left > 1:
         mid = left + (right - left)//2
-        a_x = [-1 if i < mid else 1 for i in a]
-        a_x = [i + N for i in accumulate(a_x)] 
-        
+        a_x = [0]+[1 if i < mid else -1 for i in a]
         qusai_inv = 0
-        bit = Bit(2*N)
+        bit = Bit(2*N+2)
         
-        for i, e in enumerate(a_x):
-            qusai_inv += bit.sum(e) 
-            bit.add(e, 1)
-        
-        if qusai_inv  < (N*(N+1)/2)//2+1:
+        for i, e in enumerate(accumulate(a_x)):
+            bit.add(e+N+1, 1)
+            qusai_inv += bit.sum(e+N)
+            
+        if qusai_inv < threshold:
             left = mid
         else:
             right = mid

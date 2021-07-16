@@ -1,4 +1,5 @@
 import bisect
+import time
 
 def main(a):
     # a = list(map(int, input().split()))
@@ -43,12 +44,31 @@ def bi_right(a):
 
 if __name__=='__main__':
     a = list(map(int, input().split()))
+    
     print('a:', a)
-    print('main')
+    print('main output')
+    time_a = time.time()
     main(a)
-    print('bisect.bisect_left')
+    time_b = time.time()
+    print('main time', time_b - time_a)
+    time.sleep(2)
+    print()
+    print('bisect.bisect_left output')
+    time_a = time.time()
     bi_left(a)
-    print('bisect.bisect_right')
+    time_b = time.time()
+    print('isect.bisect_left time', time_b - time_a)
+    time.sleep(2)
+    print()
+    print('bisect.bisect_right output')
+    time_a = time.time()
     bi_right(a)
-    print('1 line dict')
+    time_b = time.time()
+    print('isect.bisect_left time', time_b - time_a)
+    time.sleep(2)
+    print()
+    print('1 line dict output')
+    time_a = time.time()
     print({e: i for i, e in enumerate(sorted(set(a)))})
+    time_b = time.time()
+    print('1 line dict output', time_b - time_a)
