@@ -54,7 +54,7 @@ def main():
         qusai_inv = 0
         bit = Bit(2*N+2)
         
-        for i, e in enumerate(accumulate(a_x)):
+        for e in accumulate(a_x):
             bit.add(e+N+1, 1)
             qusai_inv += bit.sum(e+N)
             
