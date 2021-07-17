@@ -21,11 +21,11 @@ def main():
     while right - left > 1:
         mid = left + (right - left)//2
         if is_feasible(mid, N, C, x):
-            right = mid
-        else:
             left = mid
+        else:
+            right = mid
 
-    print(right)
+    print(left)
 
 if __name__=='__main__':
     main()
