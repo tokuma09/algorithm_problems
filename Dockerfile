@@ -32,6 +32,7 @@ WORKDIR /work/
 ENV JULIA_PROJECT=/work/
 COPY ./Project.toml /work/Project.toml
 RUN rm -f ./Manifest.toml && julia -e 'using Pkg; \
+Pkg.activate(); \
 Pkg.instantiate(); \
 Pkg.precompile(); \
 ' && \
