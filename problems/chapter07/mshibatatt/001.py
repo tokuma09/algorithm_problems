@@ -10,7 +10,7 @@ def main():
 
     output = 0
     for i in b:
-        output += bisect_left(i, a)
+        output += bisect_left(a, i)
 
     print(output)
 
