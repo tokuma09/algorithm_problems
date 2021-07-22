@@ -3,16 +3,16 @@ from collections import deque
 def main():
     express = input().split()
 
-    item = deque([])
+    stack = deque([])
     for i in express:
         if i.isdecimal():
-            item.append(i)
+            stack.append(i)
         else:
-            output = item.pop()
-            output = item.pop() + i + output
-            item.append(str(eval(output)))
+            output = stack.pop()
+            output = stack.pop() + i + output
+            stack.append(str(eval(output)))
 
-    output = item.pop()
+    output = stack.pop()
     print(output)
 
 if __name__=='__main__':
