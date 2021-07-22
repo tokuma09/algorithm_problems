@@ -33,12 +33,12 @@ class DoubleLinkedList:
         v.next = pos.next
         pos.next.prev = v
         pos.next = v
-        v.prev = p
+        v.prev = pos
     
-    # insert v after p
+    # erase v
     def erase(self, v):
-        if v == None: return 
-        v.prev.next = v.next
+        if v == None: return
+        v.prev.next = v.next 
         v.next.prev = v.prev
         del v
     
@@ -48,6 +48,18 @@ class DoubleLinkedList:
         for j in range(i):
             output = output.next
         return output.data
+    
+    # remove last data and return the value
+    def pop(self):
+        output = self.nil.prev.data
+        self.erase(self.nil.prev)
+        return output
+
+    # remove first data and return the value    
+    def pop_left(self):
+        output = self.nil.next.data
+        self.erase(self.nil.next)
+        return output
 
 class SingleLinkedList:
     def __init__(self):
@@ -72,7 +84,7 @@ class SingleLinkedList:
         v.next = pos.next
         pos.next = v
     
-    # insert v after p
+    # erase v
     def erase(self, v):
         if v == None: return
         for i in self:
