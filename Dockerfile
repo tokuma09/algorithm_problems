@@ -28,11 +28,11 @@ RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Julia Packages
-WORKDIR /work/
-ENV JULIA_PROJECT=/work/
-COPY ./Project.toml /work/Project.toml
+WORKDIR /home/vscode/work/
+ENV JULIA_PROJECT=/home/vscode/work/
+COPY ./Project.toml /home/vscode/work/Project.toml
 RUN rm -f ./Manifest.toml && julia -e 'using Pkg; \
-Pkg.activate(); \
+Pkg.activate("."); \
 Pkg.instantiate(); \
 Pkg.precompile(); \
 ' && \
