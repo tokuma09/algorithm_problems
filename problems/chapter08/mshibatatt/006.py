@@ -13,7 +13,7 @@ def main():
             count[i] = 1
     for j in b:
         if j in count.keys():
-            output += count[i]  
+            output += count[j]  
 
     print(output)
 
