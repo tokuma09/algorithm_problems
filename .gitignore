@@ -212,3 +212,4 @@ Manifest.toml
 # Atcoder
 input.txt
 samples/
+.vscode/julia.code-snippets
