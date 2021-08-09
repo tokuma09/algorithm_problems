@@ -1,3 +1,4 @@
+# code to count connected component
 from collections import deque
 
 class graph:
