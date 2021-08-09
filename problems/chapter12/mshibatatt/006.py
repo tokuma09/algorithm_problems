@@ -6,7 +6,7 @@ Euler theorem: A^phi(N) = 1(mod N), where A and N are coprime
 When x is large, A^(x + phi(M)) = A^x(mod M)
 return A^x % LCM(phi(M), M)
 '''
-from math import gcd, sqrt, ceil
+from math import gcd
 
 def phi(n):
     # Eular phi function
