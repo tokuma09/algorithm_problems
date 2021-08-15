@@ -13,7 +13,7 @@ def phi(n):
                 n //= p
         p += 1
     if n > 1:
-        phi = phi*(n-1)//n # why..
+        phi = phi*(n - 1)//n
     return phi
 
 def lcm(a, b):
@@ -21,7 +21,7 @@ def lcm(a, b):
     return a * b // gcd(a, b)
 
 def MPE(A, M):
-    L =30
+    L = 30
     if A == 0: return M
     if A == 1: return 1
     if M == 1: return L
