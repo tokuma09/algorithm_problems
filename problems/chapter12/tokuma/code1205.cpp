@@ -1,5 +1,19 @@
 // give up
-int rec(a, k)
+#include <algorithm>
+#include <vector>
+#include <iostream>
+
+using namespace std;
+
+template <typename T>
+T median(std::vector<T>& c)
+{
+    size_t n = c.size() / 2;
+    std::nth_element(c.begin(), c.begin() + n, c.end());
+    return c[n];
+}
+
+int rec(vector<int> a, int k)
 {
     // 終端条件
     if (a.size() <= 100)
@@ -12,7 +26,8 @@ int rec(a, k)
     vector<int> a2;
     for (int i = 0; i < a.size(); i += 5)
     {
-        a2.push_back(a [i:i + 5] のメディアン);
+        vector<int> sub_vec= {&a[i], &a[i+5]};
+        a2.push_back(median(sub_vec));
     }
 
     // a2 のメディアンを求める
@@ -38,4 +53,16 @@ int rec(a, k)
         return m;
     else
         return rec(r, k - p.size() - q.size());
+}
+
+int main(){
+    int N, K;
+    cin >> N >> K;
+    vector<int> a(N);
+    for (int i = 0; i < N; ++i)
+    {
+        cin >> a[i];
+    }
+
+    cout << rec(a, K-1) << endl;
 }
