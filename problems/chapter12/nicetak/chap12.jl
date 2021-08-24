@@ -15,7 +15,7 @@ end
 
 # ╔═╡ 32195f6c-ebfb-11eb-0c60-9f55b3e2fde1
 md"""
-# Chapter 10
+# Chapter 12
 #### Nicetak
  $(import Dates; Dates.format(Dates.today(), Dates.DateFormat("U d, Y")))
 """
@@ -118,7 +118,7 @@ T(N) &= 2T\left(\frac{N}{2}\right) + O(N \log N) \\
 	+ O\left(\frac{N}{2} \log \left(\frac{N}{2}\right)\right) \right)
 	+ O\left(N \log N\right) \\
 &=2^k c + O\left(N\left(\log 1 + \log 2 + \dots \log 2^k \right)\right) \\
-&= O(N) + O\left(N\log 2 \left(1 + \dots + k\right)\right) \\
+&= O(N) + O\left(N(\log 2) \left(1 + \dots + k\right)\right) \\
 &= O(N) + O(N k(k + 1)) \\
 &= O(N (\log N)^2)
 \end{aligned}$
