@@ -54,14 +54,14 @@ function f₁(G)
 end
 
 # ╔═╡ f3577938-4381-45a5-88b2-ab06f0f16529
-function edges_to_graph(edges, n)
+function edges_to_graph(edges, n; is_directed=false)
 	m = size(edges)[1]
 	G = [Vector{Int}() for _ in 1:n]
 	
 	for i in 1:m
 		src, dst = edges[i, 1], edges[i, 2]
 		push!(G[src], dst)
-		push!(G[dst], src)
+		!is_directed && push!(G[dst], src)
 	end
 	
 	return G
@@ -199,7 +199,63 @@ md"""
 """
 
 # ╔═╡ f0fee254-67e7-4e54-9dff-529dca6d9dae
+function f₅(G)
+	n = length(G)
+	
+	# Create Reversed Graph G′
+	G′ = [Vector{Int}() for _ in 1:n]
+	for i = 1:n, e ∈ G[i]
+		push!(G′[e], i)
+	end
+	
+	num_ins = [length(g) for g ∈ G]
+	
+	que = Queue{Int}()
+	for i = 1:n
+		num_ins[i] == 0 && enqueue!(que, i)
+	end
+	
+	ans = Vector{Int}()
+	while !isempty(que)
+		now = dequeue!(que)
+		pushfirst!(ans, now)
+		for e ∈ G′[now]
+			num_ins[e] -= 1
+			num_ins[e] == 0 && enqueue!(que, e)
+		end
+	end
+	
+	return ans
+end
 
+# ╔═╡ 87d201d1-00c3-4d90-84b7-e7b989902bba
+let
+	edges = [
+		1 6
+		2 4
+		2 7
+		3 6
+		3 8
+		4 1
+		4 8
+		5 2
+		5 3
+		5 7
+		7 8
+		8 1
+	]
+	
+	G = edges_to_graph(edges, 8, is_directed=true)
+	graphplot(G,
+		names=0:7,
+		curves=false,
+		nodeshape=:circle,
+		fontsize=20,
+		title="Topological Sort \n$(f₅(G) .- 1)")
+	
+	
+end
+	
 
 # ╔═╡ a5a7bb2e-f278-418d-96dc-e10a01392550
 md"""
@@ -1126,7 +1182,7 @@ version = "0.9.1+5"
 # ╠═8c64d70d-f46b-4ae4-9b43-53d7fd461efe
 # ╟─5ee0cdc1-ac4b-4664-b350-daa3c3179806
 # ╠═f535e226-0c5c-47d5-ab6b-d3590ba14e4d
-# ╟─f3577938-4381-45a5-88b2-ab06f0f16529
+# ╠═f3577938-4381-45a5-88b2-ab06f0f16529
 # ╟─d8d0fddf-2853-4fa0-bc3a-585773b58a3b
 # ╟─f6899ade-339e-4365-8dd5-c229dc9db42f
 # ╠═b60d06df-a58f-4a6f-9afc-b46478f4c142
@@ -1138,6 +1194,7 @@ version = "0.9.1+5"
 # ╠═0e523d1f-9b05-46ae-a5f2-d6b6930ba0eb
 # ╟─137942e1-2815-4bc4-9ba2-8efa48113a32
 # ╠═f0fee254-67e7-4e54-9dff-529dca6d9dae
+# ╟─87d201d1-00c3-4d90-84b7-e7b989902bba
 # ╟─a5a7bb2e-f278-418d-96dc-e10a01392550
 # ╠═662bce03-e461-4e7c-9827-f327c7da6754
 # ╟─00000000-0000-0000-0000-000000000001
