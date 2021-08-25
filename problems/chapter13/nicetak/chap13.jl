@@ -4,260 +4,237 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 6176e734-624c-4224-a867-046db0ea0b7d
+# ╔═╡ 8c64d70d-f46b-4ae4-9b43-53d7fd461efe
 begin
 	using PlutoUI
-	using Plots
 	using DataStructures
-	using Statistics
-	using LaTeXStrings
+	using LightGraphs
+	using Plots
+	using GraphRecipes
 end
 
-# ╔═╡ 32195f6c-ebfb-11eb-0c60-9f55b3e2fde1
+# ╔═╡ 94e5f9f8-f157-11eb-2b69-6d7253ae9cf9
 md"""
-# Chapter 12
+# Chapter 13
 #### Nicetak
  $(import Dates; Dates.format(Dates.today(), Dates.DateFormat("U d, Y")))
 """
 
-# ╔═╡ 3147080a-9644-430a-b9cf-ab5bd306ec41
+# ╔═╡ 5ee0cdc1-ac4b-4664-b350-daa3c3179806
 md"""
-## 12.1
- $N$個の相異なる整数$a_0, a_1, \dots, a_{N-1}$が与えられます.
-各$a_i$に対して何番目に小さい値であるかを求めるアルゴリズムを設計してください.
+## 13.1
+無向グラフの連結成分の個数を数える問題を深さ優先探索または幅優先探索を用いて解いてください.
 """
 
-# ╔═╡ 78d6f2da-e804-4f62-80a5-9a3c29c45e8b
-md"""
-**答** 6.1の座標圧縮の問題と同じであるため省略.
-"""
-
-# ╔═╡ a2c00201-b1aa-4f23-899f-be68a8542ad1
-md"""
-## 12.3
- $N, K$を正の整数とします$(K \le N)$. いま空集合$S$があって, $N$個の相異なる整数$a_0, a_1, \dots, a_{N-1}$が順に挿入されていきます. 各$i = K, K+1, \dots, N$に対して, $S$に$i$個の整数が挿入されている段階を考えたときの, $S$に含まれる要素の中で, $K$番目に小さい値を出力するアルゴリズムを設計してください. ただし全体で$O(N \log N)$で実現してください.
-"""
-
-# ╔═╡ 5a346a08-2419-4aee-bf92-b63e685742c2
-md"""
-**答**
-
-1.  $a_0, \dots, a_{K-1}$でヒープを構成する(最大値をポップできるように)
-1. １つポップする($p$とする). これは$i = K$において, $K$番目に小さい値である
-1.  $p$と$a_K$を比べる.
-    -  $a_K$が大きい場合, $p$が$i = K+1$に対して, $K$番目に小さい値である
-    -  $p$が大きい場合, $a_K$をプッシュする. この時, 最大値を取得するとこれが$i = K + 1$に対して$K$番目に小さい値である
-1. 上の操作を$i = K + 2, \dots, N$まで繰り返す
-
-
-これらの各操作はヒープより$O(\log N)$であり, 全体で$O(N \log N)$.
-"""
-
-# ╔═╡ b7162961-6629-4b0d-ad57-7658223c9202
-function f₃(as, K)
-	h = BinaryMaxHeap(as[1:K])
-	aₖ = first(h)
-	println(aₖ)
-	for i in K+1:length(as)
-		a = as[i]
-		p = pop!(h)
-		if a ≥ p
-			println(p)
-			push!(h, p)
-		else
-			push!(h, a)
-			println(first(h))
+# ╔═╡ f535e226-0c5c-47d5-ab6b-d3590ba14e4d
+function f₁(G)
+	n = length(G)
+	dists = -ones(Int, n)
+	que = Queue{Int}()
+	
+	ans = 0
+	for v = 1:n
+		if dists[v] == -1
+			dists[v] = 0
+			enqueue!(que, v)
+			while !isempty(que)
+				w = dequeue!(que)
+				for x ∈ G[w]
+					if dists[x] == -1
+						dists[x] = dists[w] + 1
+						enqueue!(que, x)
+					end
+				end
+			end
+			ans += 1
 		end
 	end
+	
+	return ans
 end
 
-# ╔═╡ 5b9c7171-a0dd-4c10-b232-5eb2867ecdd2
-with_terminal() do
-	as = rand(1:100, 10)
-	K = 3
-	println("Given a = $as, K = $K")
-	f₃(as, K)
+# ╔═╡ f3577938-4381-45a5-88b2-ab06f0f16529
+function edges_to_graph(edges, n)
+	m = size(edges)[1]
+	G = [Vector{Int}() for _ in 1:n]
+	
+	for i in 1:m
+		src, dst = edges[i, 1], edges[i, 2]
+		push!(G[src], dst)
+		push!(G[dst], src)
+	end
+	
+	return G
 end
 
-# ╔═╡ 4ecebce4-9562-4849-9607-a1ac68f694a6
-md"""
-## 12.4
-計算量を表す関数$T(N)$が$T(N) = 2T(\frac{N}{2}) + O(N^2)$を満たすとき, $T(N) = O(N^2)$
-であることを証明してください.
-また$T(N) = 2T(\frac{N}{2}) + O(N\log N)$の場合はどのようになるでしょうか.
-"""
-
-# ╔═╡ 59933788-6d31-4a6c-8b4c-2e7eebe67e62
-md"""
-**答**
-
- $T(1) = c$を仮定し, $N = 2^k$の場合を考える.
-
-$\begin{aligned} 
-T(N) &= 2T\left(\frac{N}{2}\right) + O(N^2) \\
- &= 2\left(2 \left( \dots 2\left(2T\left(\frac{N}{2^k}\right) 
-			+ O\left(\frac{N^2}{2^{2k}}\right) \right) 
-			+ O\left(\frac{N^2}{2^{2(k-1)}}\right) \dots \right) 
-			+ O\left(\frac{N^2}{2^{2}}\right) \right)
-			+ O\left(N^2\right) \\
-&= 2^k c + 2^k O\left(\frac{N^2}{2^{2k}}\right) 
-+ \dots + 2O\left(\frac{N^2}{2^2}\right) + O\left(N^2\right)\\
-&= Nc + O(N^2)\left(1 + 2^{-1} + \dots + 2^{-k}\right) \\
-&= Nc + O(N^2)\left(2 - 2^{-k}\right) \\
-&= Nc + O(N^2)\left(2 - N^{-1}\right) \\
-&= O(N^2)
-\end{aligned}$
-
-同様に$T(N) = 2T\left(\frac{N}{2}\right) + O(N \log N)$の時,
-$\begin{aligned}
-T(N) &= 2T\left(\frac{N}{2}\right) + O(N \log N) \\
-&= 2\left(2 \left( \dots 2\left(2T\left(\frac{N}{2^k}\right) 
-	+ O\left(\frac{N}{2^{k}} \log \left(\frac{N}{2^{k}}\right)\right) \right) 
-	+ O\left(\frac{N}{2^{k-1}} \log \left(\frac{N}{2^{k-1}}\right)\right)
-\dots \right)
-	+ O\left(\frac{N}{2} \log \left(\frac{N}{2}\right)\right) \right)
-	+ O\left(N \log N\right) \\
-&=2^k c + O\left(N\left(\log 1 + \log 2 + \dots \log 2^k \right)\right) \\
-&= O(N) + O\left(N(\log 2) \left(1 + \dots + k\right)\right) \\
-&= O(N) + O(N k(k + 1)) \\
-&= O(N (\log N)^2)
-\end{aligned}$
-"""
-
-# ╔═╡ 19d44577-4f88-46e8-819f-24546cd8a514
-md"""
-## 12.5
- $N$個の整数$a_0, a_1, \dots, a_{N-1}$が与えられます. このうちの$k$番目に小さい整数値を$O(N)$で求めるアルゴリズムを設計してください.
-"""
-
-# ╔═╡ d3e5d2ad-98ab-46f8-8419-e4c68173883c
-md"""
-**答**
-
-アルゴリズムを`order(as, k)`とし, その計算量は $T(N)$とする.
-1. `as`を長さ$5$の数列$N/5$個に分ける. 余りも一つのグループとしてカウント. $O(N)$
-1. 長さ$5$の数列それぞれの中央値からなる長さ$N/5$の数列`cs`を作る. 長さ$5$の数列の中央値は定数時間で求められるので, $O(N)$
-1. `cs`の中央値 $m =$ `order(cs, N/10)` を求める. $T\left(\frac{N}{5}\right)$
-1. `as`を$m$未満, $m$と等しい, $m$以上の要素からなる数列$s_1, s_2, s_3$に分割する. 連結リストに順番に格納していき, 最後に配列に変換しても$O(N)$.
-1. 次の3つの場合を考える. 
-    -  $k \le |s_1|$ ⇒ `return order(s₁, k)`
-    -  $|s_1| < k \le |s_1| + |s_2|$ ⇒ `return m`
-    -  $|s_1| + |s_2| < k$ ⇒ `return order(s₃, k - length(s₁) - length(s₂))`
-
-定義から$m$以上の数, $m$以下の数は$\frac{3N}{10}$以上あるので,
-$|s_1|, |s_3| \le \frac{7N}{10}$.
-したがって, 最後のステップの計算量は$T\left(\frac{7N}{10}\right)$.
-
-以上の議論から,
-
-$T(N) = T\left(\frac{N}{5}\right) + T\left(\frac{7N}{10}\right) + O(N).$
-これは教科書12.4.3と同様の議論から, $\frac{N}{5} + \frac{7N}{10} < N$より, $T(N) = O(N)$.
-
-*参考: [選択アルゴリズム：線形](https://37zigen.com/selection-algorithm/)*
-"""
-
-# ╔═╡ f8969802-f005-43c2-964a-707088d61452
+# ╔═╡ d8d0fddf-2853-4fa0-bc3a-585773b58a3b
 begin
-	function order(as, k)
-		n = length(as)   
-		cs = [median5(as[i:min(i+4, n)]) for i in 1:5:n]
-		m = (length(cs) ≤ 5) ? median5(cs)　: order(cs, floor(Int, n/10))
+	edges = [ 
+			1 2
+			2 3
+			3 1
+			4 5
+			5 6
+			7 8
+		]
+	G = edges_to_graph(edges, 8)
+	graphplot(G, 
+		names=1:8, 
+		curves=false, 
+		nodeshape=:circle, 
+		fontsize=20, 
+		title="Number of Connected Blocks is $(f₁(G))")
+end
 
-		s₁ = MutableLinkedList{typeof(m)}()
-		s₂, s₃ = copy(s₁), copy(s₁)
-		for a in as
-			if a < m
-				push!(s₁, a)
-			elseif a == m
-				push!(s₂, a)
-			else
-				push!(s₃, a)
+# ╔═╡ f6899ade-339e-4365-8dd5-c229dc9db42f
+md"""
+## 13.2
+コード13.4では, グラフ$G = (V, E)$上の2頂点$s, t \in V$に対してs-tパスが存在するかどうかを判定しています. これを幅優先探索によって実装してください.
+"""
+
+# ╔═╡ b60d06df-a58f-4a6f-9afc-b46478f4c142
+function f₂(G; s, t)
+	n = length(G)
+	dists = -ones(Int, n)
+	que = Queue{Int}()
+	dists[s] = 0; enqueue!(que, s)
+	while !isempty(que)
+		v = dequeue!(que)
+		for x ∈ G[v]
+			if dists[x] == -1
+				dists[x] = dists[v] + 1
+				enqueue!(que, x)
 			end
 		end
-
-
-		if k ≤ length(s₁)
-			return order(collect(s₁), k)
-		elseif length(s₁) < k ≤ length(s₁) + length(s₂)
-			return m
-		else
-			return order(collect(s₃), k - length(s₁) - length(s₂))
-		end
 	end
 	
-	median5(as) = sort!(as)[(length(as) + 1) ÷ 2] # O(5 log 5) = O(1)
-	
+	if dists[t] != -1
+		return "Yes"
+	else
+		return "No"
+	end
 end
 
-
-
-# ╔═╡ 5905c1cc-a815-4c40-be24-9bbd872cd3aa
+# ╔═╡ 1daa8e24-e917-4a46-b6b9-853e89e330ef
 with_terminal() do
-	k = 5
-	as = rand(1:30, 10)
-	println("Given as = $as, k = $k")
-	@show order(as, k)
-	@show sort!(as)[k]
+	@show f₂(G, s = 1, t= 3)
+	@show f₂(G, s = 1, t = 6)
 end
 
-# ╔═╡ af3ff087-97aa-4471-888a-50054d6d546f
+# ╔═╡ 5bff4f06-5657-4fbd-9114-ac1fc5026c5d
 md"""
-しかし, 現実的な$N$に対して$\log N$は十分小さいので, $O(N)$で省略される定数倍の部分が大きい時,
-ソートしてから$k$番目を取得する$O(N\log N)$の方が早い場合もありうる.
+## 13.3
+コード13.5では, 無向グラフ$G=(V, E)$が二部グラフかどうかを判定しています. これを幅優先探索によって実装してください.
 """
 
-# ╔═╡ 3ffb52b8-8136-4007-9aa9-767376595e4e
-begin
-	N = 3000
-	M = 10 # Number of Simulation
-	t₁s = zeros(N)
-	t₂s = similar(t₁s)
-	tmp₁s = zeros(M)
-	tmp₂s = similar(tmp₁s)
+# ╔═╡ 5f1297fe-1368-4695-99a0-a26582fe53da
+function f₃(G)
+	n = length(G)
+	dists = -ones(Int, n)
+	que = Queue{Int}()
+	is_bipartite = true
 	
-	for n in 2:N
-		k = n ÷ 2 #median
-		for i in 1:M
-			as = rand(1:2n, n)
-			tmp₁s[i] = (@timed order(as, k)).time
-			tmp₂s[i] = (@timed sort!(as)[k]).time
+	for v in 1:n
+		if dists[v] == -1
+			dists[v] = 0; enqueue!(que, v)
+			while !isempty(que)
+				w = dequeue!(que)
+				for x ∈ G[w]
+					if dists[x] == -1
+						dists[x] = dists[w] + 1
+						enqueue!(que, x)
+					else
+						if dists[w] == dists[x]
+							is_bipartite = false
+						end
+					end
+				end
+			end
 		end
-		t₁s[n] = median(tmp₁s)
-		t₂s[n] = median(tmp₂s)
+	end
+		
+	if is_bipartite
+		return "Yes"
+	else
+		return "No"
 	end
 end
 
-# ╔═╡ 8b3c521c-21c2-4ea0-aca9-9397e6109bb0
+# ╔═╡ 8e5274a8-b024-4a47-a630-5206de4a82cd
 begin
-	plot(t₁s, 
-		title = "Computatioinal Time of Median of Medians",
-		xlabel = "N",
-		ylabel = "Seconds",
-		legend = :topleft,
-		label = L"O(N)"
-	)
-	plot!(t₂s, label = L"O(N \log N)")
+	edges₃ = [ 
+			1 2
+			2 3
+			1 4
+			2 5
+			4 5
+			4 8
+			6 7
+			6 8
+		]
+	G₃ = edges_to_graph(edges₃, 8)
+	graphplot(G₃, 
+		names=1:8, 
+		curves=false, 
+		nodeshape=:circle, 
+		markercolor = [:orange, :skyblue, :orange, 
+			:skyblue, :orange, :skyblue, :orange, :orange],
+		fontsize=20, 
+		title="Is Bipartite? - $(f₃(G₃)).")
 end
+
+# ╔═╡ 60029bce-d61d-4feb-bfe2-ad0623c30fb4
+md"""
+## 13.4
+1.2.2節で見たような迷路について, 迷路のサイズをH×Wとして, スタートからゴールまでたどり着く最短路を$O(HW)$で求めるアルゴリズムを設計してください.
+"""
+
+# ╔═╡ 0e523d1f-9b05-46ae-a5f2-d6b6930ba0eb
+
+
+# ╔═╡ 137942e1-2815-4bc4-9ba2-8efa48113a32
+md"""
+## 13.5
+コード13.6のトポロジカルソートを幅優先探索によって実装してください.
+"""
+
+# ╔═╡ f0fee254-67e7-4e54-9dff-529dca6d9dae
+
+
+# ╔═╡ a5a7bb2e-f278-418d-96dc-e10a01392550
+md"""
+## 13.6
+有向グラフ$G=(V, E)$が有向サイクルを含むかどうかを判定し, 含むならば具体的に1つ求めるアルゴリズムを設計してください.
+"""
+
+# ╔═╡ 662bce03-e461-4e7c-9827-f327c7da6754
+
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+GraphRecipes = "bd48cda9-67a9-57be-86fa-5b3c104eda73"
+LightGraphs = "093fc24a-ae57-5d10-9952-331d41423f4d"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [compat]
 DataStructures = "~0.18.9"
-LaTeXStrings = "~1.2.1"
-Plots = "~1.19.3"
+GraphRecipes = "~0.5.7"
+LightGraphs = "~1.3.5"
+Plots = "~1.19.4"
 PlutoUI = "~0.7.9"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
+
+[[AbstractTrees]]
+git-tree-sha1 = "03e0550477d86222521d254b741d470ba17ea0b5"
+uuid = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"
+version = "0.3.4"
 
 [[Adapt]]
 deps = ["LinearAlgebra"]
@@ -268,8 +245,20 @@ version = "3.3.1"
 [[ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
 
+[[ArnoldiMethod]]
+deps = ["LinearAlgebra", "Random", "StaticArrays"]
+git-tree-sha1 = "f87e559f87a45bece9c9ed97458d3afe98b1ebb9"
+uuid = "ec485272-7323-5ecc-a04f-4719b315124d"
+version = "0.1.0"
+
 [[Artifacts]]
 uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
+
+[[AxisAlgorithms]]
+deps = ["LinearAlgebra", "Random", "SparseArrays", "WoodburyMatrices"]
+git-tree-sha1 = "a4d07a1c313392a77042855df46c5f534076fab9"
+uuid = "13072b0f-2c55-5437-9ae7-d433b7a33950"
+version = "1.0.0"
 
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
@@ -286,6 +275,12 @@ git-tree-sha1 = "e2f47f6d8337369411569fd45ae5753ca10394c6"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.16.0+6"
 
+[[ChainRulesCore]]
+deps = ["Compat", "LinearAlgebra", "SparseArrays"]
+git-tree-sha1 = "f53ca8d41e4753c41cdafa6ec5f7ce914b34be54"
+uuid = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+version = "0.10.13"
+
 [[ColorSchemes]]
 deps = ["ColorTypes", "Colors", "FixedPointNumbers", "Random", "StaticArrays"]
 git-tree-sha1 = "ed268efe58512df8c7e224d2e170afd76dd6a417"
@@ -294,9 +289,9 @@ version = "3.13.0"
 
 [[ColorTypes]]
 deps = ["FixedPointNumbers", "Random"]
-git-tree-sha1 = "024fe24d83e4a5bf5fc80501a314ce0d1aa35597"
+git-tree-sha1 = "32a2b8af383f11cbb65803883837a149d10dfe8a"
 uuid = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
-version = "0.11.0"
+version = "0.10.12"
 
 [[Colors]]
 deps = ["ColorTypes", "FixedPointNumbers", "Reexport"]
@@ -306,9 +301,9 @@ version = "0.12.8"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
-git-tree-sha1 = "dc7dedc2c2aa9faf59a55c622760a25cbefbe941"
+git-tree-sha1 = "344f143fa0ec67e47917848795ab19c6a455f32c"
 uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "3.31.0"
+version = "3.32.0"
 
 [[CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -430,6 +425,12 @@ git-tree-sha1 = "15ff9a14b9e1218958d3530cc288cf31465d9ae2"
 uuid = "5c1252a2-5f33-56bf-86c9-59e7332b4326"
 version = "0.3.13"
 
+[[GeometryTypes]]
+deps = ["ColorTypes", "FixedPointNumbers", "LinearAlgebra", "StaticArrays"]
+git-tree-sha1 = "07194161fe4e181c6bf51ef2e329ec4e7d050fc4"
+uuid = "4d00f742-c7ba-57c2-abde-4428a4b178cb"
+version = "0.8.4"
+
 [[Gettext_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Libiconv_jll", "Pkg", "XML2_jll"]
 git-tree-sha1 = "9b02998aba7bf074d14de89f9d37ca24a1a0b046"
@@ -438,9 +439,15 @@ version = "0.21.0+0"
 
 [[Glib_jll]]
 deps = ["Artifacts", "Gettext_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Libiconv_jll", "Libmount_jll", "PCRE_jll", "Pkg", "Zlib_jll"]
-git-tree-sha1 = "47ce50b742921377301e15005c96e979574e130b"
+git-tree-sha1 = "7bf67e9a481712b3dbe9cb3dac852dc4b1162e02"
 uuid = "7746bdde-850d-59dc-9ae8-88ece973131d"
-version = "2.68.1+0"
+version = "2.68.3+0"
+
+[[GraphRecipes]]
+deps = ["AbstractTrees", "GeometryTypes", "InteractiveUtils", "Interpolations", "LightGraphs", "LinearAlgebra", "NaNMath", "NetworkLayout", "PlotUtils", "RecipesBase", "SparseArrays", "Statistics"]
+git-tree-sha1 = "7269dc06b8cd8d16fc2b1756cf7f41901bbc3c52"
+uuid = "bd48cda9-67a9-57be-86fa-5b3c104eda73"
+version = "0.5.7"
 
 [[Grisu]]
 git-tree-sha1 = "53bb909d1151e57e2484c3d1b53e19552b887fb2"
@@ -453,6 +460,11 @@ git-tree-sha1 = "c6a1fff2fd4b1da29d3dccaffb1e1001244d844e"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
 version = "0.9.12"
 
+[[Inflate]]
+git-tree-sha1 = "f5fc07d4e706b84f72d54eedcc1c13d92fb0871c"
+uuid = "d25df0c9-e2be-5dd7-82c8-3ad0b3e990b9"
+version = "0.1.2"
+
 [[IniFile]]
 deps = ["Test"]
 git-tree-sha1 = "098e4d2c533924c921f9f9847274f2ad89e018b8"
@@ -462,6 +474,12 @@ version = "0.5.0"
 [[InteractiveUtils]]
 deps = ["Markdown"]
 uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+
+[[Interpolations]]
+deps = ["AxisAlgorithms", "ChainRulesCore", "LinearAlgebra", "OffsetArrays", "Random", "Ratios", "Requires", "SharedArrays", "SparseArrays", "StaticArrays", "WoodburyMatrices"]
+git-tree-sha1 = "1470c80592cf1f0a35566ee5e93c5f8221ebc33a"
+uuid = "a98d9a8b-a2ab-59e6-89dd-64a1c18fca59"
+version = "0.13.3"
 
 [[IterTools]]
 git-tree-sha1 = "05110a2ab1fc5f932622ffea2a003221f4782c18"
@@ -587,6 +605,12 @@ git-tree-sha1 = "7f3efec06033682db852f8b3bc3c1d2b0a0ab066"
 uuid = "38a345b3-de98-5d2b-a5d3-14cd9215e700"
 version = "2.36.0+0"
 
+[[LightGraphs]]
+deps = ["ArnoldiMethod", "DataStructures", "Distributed", "Inflate", "LinearAlgebra", "Random", "SharedArrays", "SimpleTraits", "SparseArrays", "Statistics"]
+git-tree-sha1 = "432428df5f360964040ed60418dd5601ecd240b6"
+uuid = "093fc24a-ae57-5d10-9952-331d41423f4d"
+version = "1.3.5"
+
 [[LinearAlgebra]]
 deps = ["Libdl"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
@@ -636,8 +660,20 @@ git-tree-sha1 = "bfe47e760d60b82b66b61d2d44128b62e3a369fb"
 uuid = "77ba4419-2d1f-58cd-9bb1-8ffee604a2e3"
 version = "0.3.5"
 
+[[NetworkLayout]]
+deps = ["GeometryBasics", "LinearAlgebra", "Random", "Requires", "SparseArrays"]
+git-tree-sha1 = "76bbbe01d2e582213e656688e63707d94aaadd15"
+uuid = "46757867-2c16-5918-afeb-47bfcb05e46a"
+version = "0.4.0"
+
 [[NetworkOptions]]
 uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
+
+[[OffsetArrays]]
+deps = ["Adapt"]
+git-tree-sha1 = "4f825c6da64aebaa22cc058ecfceed1ab9af1c7e"
+uuid = "6fe1bfb0-de20-5000-8ca7-80f57d26f881"
+version = "1.10.3"
 
 [[Ogg_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -670,9 +706,9 @@ version = "8.44.0+0"
 
 [[Parsers]]
 deps = ["Dates"]
-git-tree-sha1 = "c8abc88faa3f7a3950832ac5d6e690881590d6dc"
+git-tree-sha1 = "94bf17e83a0e4b20c8d77f6af8ffe8cc3b386c0a"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "1.1.0"
+version = "1.1.1"
 
 [[Pixman_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -698,9 +734,9 @@ version = "1.0.11"
 
 [[Plots]]
 deps = ["Base64", "Contour", "Dates", "FFMPEG", "FixedPointNumbers", "GR", "GeometryBasics", "JSON", "Latexify", "LinearAlgebra", "Measures", "NaNMath", "PlotThemes", "PlotUtils", "Printf", "REPL", "Random", "RecipesBase", "RecipesPipeline", "Reexport", "Requires", "Scratch", "Showoff", "SparseArrays", "Statistics", "StatsBase", "UUIDs"]
-git-tree-sha1 = "1bbbb5670223d48e124b388dee62477480e23234"
+git-tree-sha1 = "1e72752052a3893d0f7103fbac728b60b934f5a5"
 uuid = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
-version = "1.19.3"
+version = "1.19.4"
 
 [[PlutoUI]]
 deps = ["Base64", "Dates", "InteractiveUtils", "JSON", "Logging", "Markdown", "Random", "Reexport", "Suppressor"]
@@ -731,6 +767,11 @@ uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 [[Random]]
 deps = ["Serialization"]
 uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+
+[[Ratios]]
+git-tree-sha1 = "37d210f612d70f3f7d57d488cb3b6eff56ad4e41"
+uuid = "c84ed2f1-dad5-54f0-aa8e-dbefe2724439"
+version = "0.4.0"
 
 [[RecipesBase]]
 git-tree-sha1 = "b3fb709f3c97bfc6e948be68beeecb55a0b340ae"
@@ -776,6 +817,12 @@ git-tree-sha1 = "91eddf657aca81df9ae6ceb20b959ae5653ad1de"
 uuid = "992d4aef-0814-514b-bc4d-f2e9a6c4116f"
 version = "1.0.3"
 
+[[SimpleTraits]]
+deps = ["InteractiveUtils", "MacroTools"]
+git-tree-sha1 = "5d7e3f4e11935503d3ecaf7186eac40602e7d231"
+uuid = "699a6c99-e7fa-54fc-8d76-47d257e15c1d"
+version = "0.9.4"
+
 [[Sockets]]
 uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
 
@@ -791,9 +838,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[StaticArrays]]
 deps = ["LinearAlgebra", "Random", "Statistics"]
-git-tree-sha1 = "1b9a0f17ee0adde9e538227de093467348992397"
+git-tree-sha1 = "885838778bb6f0136f8317757d7803e0d81201e4"
 uuid = "90137ffa-7385-5640-81b9-e52037218182"
-version = "1.2.7"
+version = "1.2.9"
 
 [[Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
@@ -806,9 +853,9 @@ version = "1.0.0"
 
 [[StatsBase]]
 deps = ["DataAPI", "DataStructures", "LinearAlgebra", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
-git-tree-sha1 = "2f6792d523d7448bbe2fec99eca9218f06cc746d"
+git-tree-sha1 = "fed1ec1e65749c4d96fc20dd13bea72b55457e62"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-version = "0.33.8"
+version = "0.33.9"
 
 [[StructArrays]]
 deps = ["Adapt", "DataAPI", "StaticArrays", "Tables"]
@@ -868,6 +915,12 @@ deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg", "Wayland_jll"]
 git-tree-sha1 = "2839f1c1296940218e35df0bbb220f2a79686670"
 uuid = "2381bf8a-dfd0-557d-9999-79630e7b1b91"
 version = "1.18.0+4"
+
+[[WoodburyMatrices]]
+deps = ["LinearAlgebra", "SparseArrays"]
+git-tree-sha1 = "59e2ad8fd1591ea019a5259bd012d7aee15f995c"
+uuid = "efce3f68-66dc-5838-9240-27a6d6f5f9b6"
+version = "0.5.3"
 
 [[XML2_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Libiconv_jll", "Pkg", "Zlib_jll"]
@@ -1069,22 +1122,23 @@ version = "0.9.1+5"
 """
 
 # ╔═╡ Cell order:
-# ╟─32195f6c-ebfb-11eb-0c60-9f55b3e2fde1
-# ╟─6176e734-624c-4224-a867-046db0ea0b7d
-# ╟─3147080a-9644-430a-b9cf-ab5bd306ec41
-# ╟─78d6f2da-e804-4f62-80a5-9a3c29c45e8b
-# ╟─a2c00201-b1aa-4f23-899f-be68a8542ad1
-# ╟─5a346a08-2419-4aee-bf92-b63e685742c2
-# ╠═b7162961-6629-4b0d-ad57-7658223c9202
-# ╟─5b9c7171-a0dd-4c10-b232-5eb2867ecdd2
-# ╟─4ecebce4-9562-4849-9607-a1ac68f694a6
-# ╟─59933788-6d31-4a6c-8b4c-2e7eebe67e62
-# ╟─19d44577-4f88-46e8-819f-24546cd8a514
-# ╟─d3e5d2ad-98ab-46f8-8419-e4c68173883c
-# ╠═f8969802-f005-43c2-964a-707088d61452
-# ╟─5905c1cc-a815-4c40-be24-9bbd872cd3aa
-# ╟─af3ff087-97aa-4471-888a-50054d6d546f
-# ╟─3ffb52b8-8136-4007-9aa9-767376595e4e
-# ╟─8b3c521c-21c2-4ea0-aca9-9397e6109bb0
+# ╟─94e5f9f8-f157-11eb-2b69-6d7253ae9cf9
+# ╠═8c64d70d-f46b-4ae4-9b43-53d7fd461efe
+# ╟─5ee0cdc1-ac4b-4664-b350-daa3c3179806
+# ╠═f535e226-0c5c-47d5-ab6b-d3590ba14e4d
+# ╟─f3577938-4381-45a5-88b2-ab06f0f16529
+# ╟─d8d0fddf-2853-4fa0-bc3a-585773b58a3b
+# ╟─f6899ade-339e-4365-8dd5-c229dc9db42f
+# ╠═b60d06df-a58f-4a6f-9afc-b46478f4c142
+# ╟─1daa8e24-e917-4a46-b6b9-853e89e330ef
+# ╟─5bff4f06-5657-4fbd-9114-ac1fc5026c5d
+# ╠═5f1297fe-1368-4695-99a0-a26582fe53da
+# ╟─8e5274a8-b024-4a47-a630-5206de4a82cd
+# ╟─60029bce-d61d-4feb-bfe2-ad0623c30fb4
+# ╠═0e523d1f-9b05-46ae-a5f2-d6b6930ba0eb
+# ╟─137942e1-2815-4bc4-9ba2-8efa48113a32
+# ╠═f0fee254-67e7-4e54-9dff-529dca6d9dae
+# ╟─a5a7bb2e-f278-418d-96dc-e10a01392550
+# ╠═662bce03-e461-4e7c-9827-f327c7da6754
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
