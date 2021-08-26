@@ -28,9 +28,9 @@ RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Julia Packages
-WORKDIR /home/vscode/work/
-ENV JULIA_PROJECT=/home/vscode/work/
-COPY ./Project.toml /home/vscode/work/Project.toml
+WORKDIR /workspaces/algorithm_problems
+ENV JULIA_PROJECT=//workspaces/algorithm_problems
+COPY ./Project.toml /workspaces/algorithm_problems/Project.toml
 RUN rm -f ./Manifest.toml && julia -e 'using Pkg; \
 Pkg.activate("."); \
 Pkg.instantiate(); \
