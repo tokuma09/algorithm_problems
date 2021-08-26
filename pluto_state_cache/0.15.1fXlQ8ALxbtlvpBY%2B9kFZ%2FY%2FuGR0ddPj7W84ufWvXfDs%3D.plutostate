@@ -1,0 +1,121 @@
+Œ¥bonds€¬cell_results‰Ù$cad5438e-df75-11eb-1882-e384f5a8554cˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙW<div class="markdown"><h1>Chapter 6</h1>
+<h4>Nicetak</h4>
+<p>August 26, 2021</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIò»¬rootassigneeÀ§cell_idÙ$cad5438e-df75-11eb-1882-e384f5a8554c¹depends_on_disabled_cellsÂ§runtimeÎ6&ï§erroredÂÙ$bb6c9fc1-1087-41c2-9685-38734bda7abeˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚË<div class="markdown"><p><strong>ç­”</strong>  Juliaã®æ¨™æº–ã‚½ãƒ¼ãƒˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ <code>sort</code>ãŒ<span class="tex">$O&#40;N \log N&#41;$</span>ã§å‹•ä½œã—, å„<span class="tex">$a_i$</span>ãŒã‚½ãƒ¼ãƒˆåˆ—ã®ã©ã®ä½ç½®ã«æŒ¿å…¥ã•ã‚Œã‚‹ã‹ã¯<code>searchsortedfirst</code>ã«ã‚ˆã£ã¦<span class="tex">$O&#40;\log N&#41;$</span>ã§èª¿ã¹ã‚‰ã‚Œ&#40;äºŒåˆ†æ¢ç´¢ã‚ˆã‚Š&#41;, ãã‚Œã‚’<span class="tex">$N$</span>å›ç¹°ã‚Šè¿”ã›ã°ã‚ˆã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIò'¬rootassigneeÀ§cell_idÙ$bb6c9fc1-1087-41c2-9685-38734bda7abe¹depends_on_disabled_cellsÂ§runtimeÍp§erroredÂÙ$db96c894-8e17-46c4-867b-ce8628c80939ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚô		<style>
+div.PlutoUI_terminal {
+    border: 10px solid #cedbd0; /* https://www.vintagecomputer.net/browse_thread.cfm?id=618 */
+    border-radius: 15px;
+    font-size: .65rem;
+    background-color: #333;
+    max-height: 300px;
+    overflow: auto;
+}
+pluto-output div.PlutoUI_terminal pre:not(.no-block) {
+    color: #ddd;
+    background-color: transparent;
+    margin-block-end: 0;
+    height: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+div.PlutoUI_terminal pre.err {
+    color: #ff5f5f;
+}
+</style>
+
+        <div class="PlutoUI_terminal">
+            <pre>Given as &#61; &#91;12, 43, 7, 15, 9&#93;,
+
+fâ‚&#40;as&#41; &#61; &#91;3, 5, 1, 4, 2&#93;
+sortperm&#40;as&#41; &#61; &#91;3, 5, 1, 4, 2&#93;
+</pre>
+            
+        </div>
+    °persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòTK8¬rootassigneeÀ§cell_idÙ$db96c894-8e17-46c4-867b-ce8628c80939¹depends_on_disabled_cellsÂ§runtimeÎíV/§erroredÂÙ$56f632a0-e7c8-46da-a9b2-34bb96f053a4ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚ˜		<style>
+div.PlutoUI_terminal {
+    border: 10px solid #cedbd0; /* https://www.vintagecomputer.net/browse_thread.cfm?id=618 */
+    border-radius: 15px;
+    font-size: .65rem;
+    background-color: #333;
+    max-height: 300px;
+    overflow: auto;
+}
+pluto-output div.PlutoUI_terminal pre:not(.no-block) {
+    color: #ddd;
+    background-color: transparent;
+    margin-block-end: 0;
+    height: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+div.PlutoUI_terminal pre.err {
+    color: #ff5f5f;
+}
+</style>
+
+        <div class="PlutoUI_terminal">
+            <pre>Time fâ‚: 0.121203482
+Time sortperm: 0.058577646
+</pre>
+            
+        </div>
+    °persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòfS¤¬rootassigneeÀ§cell_idÙ$56f632a0-e7c8-46da-a9b2-34bb96f053a4¹depends_on_disabled_cellsÂ§runtimeÎ"à§erroredÂÙ$cdda7a2e-a79b-4585-b39a-c7efc39af10eˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ<div class="markdown"><p>ãªãŠ, Juliaã«ã¯æ¨™æº–ã§ã“ã®åº§æ¨™åœ§ç¸®ã‚’è¡Œã†é–¢æ•°<code>sortperm</code>ãŒå®Ÿè£…ã•ã‚Œã¦ã„ã‚‹.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIò2”¬rootassigneeÀ§cell_idÙ$cdda7a2e-a79b-4585-b39a-c7efc39af10e¹depends_on_disabled_cellsÂ§runtimeÍh§erroredÂÙ$bfc7a793-e646-42bf-9f93-246ffe0f10f1ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ%fâ‚ (generic function with 1 method)°persist_js_stateÂ¤mimeªtext/plain²last_run_timestampËAØIò'ÇT¬rootassigneeÀ§cell_idÙ$bfc7a793-e646-42bf-9f93-246ffe0f10f1¹depends_on_disabled_cellsÂ§runtimeÍ~§erroredÂÙ$8dedd8b2-0f0a-4523-8503-3c8405b3ef64ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤body °persist_js_stateÂ¤mimeªtext/plain²last_run_timestampËAØIòñb¬rootassigneeÀ§cell_idÙ$8dedd8b2-0f0a-4523-8503-3c8405b3ef64¹depends_on_disabled_cellsÂ§runtimeÎ¼G§erroredÂÙ$c1e55426-349f-4419-aacc-756b9db75ce5ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚã<div class="markdown"><h2>6.1</h2>
+<p>ã©ã®ï¼’è¦ç´ ã‚‚äº’ã„ã«ç›¸ç•°ãªã‚‹<span class="tex">$N$</span>è¦ç´ ã‹ã‚‰ãªã‚‹æ•´æ•°åˆ—<span class="tex">$a_0, a_1, \dots, a_&#123;N-1&#125;$</span>ãŒä¸ãˆã‚‰ã‚Œã¾ã™. <span class="tex">$i &#61; 0, 1, \dots, N-1$</span>ã«å¯¾ã—ã¦, <span class="tex">$a_i$</span>ãŒå…¨ä½“ã®ä¸­ã§ä½•ç•ªç›®ã«å°ã•ã„å€¤ã§ã‚ã‚‹ã‹ã‚’<span class="tex">$O&#40;N \log N&#41;$</span>ã§æ±‚ã‚ã‚‹ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’è¨­è¨ˆã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòÚ¬rootassigneeÀ§cell_idÙ$c1e55426-349f-4419-aacc-756b9db75ce5¹depends_on_disabled_cellsÂ§runtimeÍ$¸§erroredÂÙ$0b3ae17a-cbed-4b12-b9fb-1ff125ae7774ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ×<div class="markdown"><p><span class="tex">$N &#61; 100$</span>ã«å¯¾ã—ã¦, <span class="tex">$M &#61; 10000$</span>å›ã®è©¦è¡Œã‚’è¡Œã†è¨ˆç®—æ™‚é–“ã‚’æ¯”ã¹ã‚‹ã¨, <code>sortperm</code>ãŒã‚„ã‚„æ—©ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIò>š¬rootassigneeÀ§cell_idÙ$0b3ae17a-cbed-4b12-b9fb-1ff125ae7774¹depends_on_disabled_cellsÂ§runtimeÍ\§erroredÂ±cell_dependencies‰Ù$cad5438e-df75-11eb-1882-e384f5a8554c„´precedence_heuristic§cell_idÙ$cad5438e-df75-11eb-1882-e384f5a8554c´downstream_cells_map¥Dates‘Ù$cad5438e-df75-11eb-1882-e384f5a8554c²upstream_cells_map†§@md_str¥Dates‘Ù$cad5438e-df75-11eb-1882-e384f5a8554c¬Dates.format«Dates.today°Dates.DateFormat¨getindexÙ$bb6c9fc1-1087-41c2-9685-38734bda7abe„´precedence_heuristic§cell_idÙ$bb6c9fc1-1087-41c2-9685-38734bda7abe´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$db96c894-8e17-46c4-867b-ce8628c80939„´precedence_heuristic§cell_idÙ$db96c894-8e17-46c4-867b-ce8628c80939´downstream_cells_map·anon7791250231452239626²upstream_cells_map…¤fâ‚‘Ù$bfc7a793-e646-42bf-9f93-246ffe0f10f1­with_terminal¨sortperm§println¥@showÙ$56f632a0-e7c8-46da-a9b2-34bb96f053a4„´precedence_heuristic§cell_idÙ$56f632a0-e7c8-46da-a9b2-34bb96f053a4´downstream_cells_map‡¤t_sp¡A¡M¦t_fâ‚¡N¸anon11741601315371701849§timeâ‚²upstream_cells_mapˆ¤fâ‚‘Ù$bfc7a793-e646-42bf-9f93-246ffe0f10f1¡:­with_terminal¨sortperm¤size¦@timed¤rand§printlnÙ$cdda7a2e-a79b-4585-b39a-c7efc39af10e„´precedence_heuristic§cell_idÙ$cdda7a2e-a79b-4585-b39a-c7efc39af10e´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$bfc7a793-e646-42bf-9f93-246ffe0f10f1„´precedence_heuristic§cell_idÙ$bfc7a793-e646-42bf-9f93-246ffe0f10f1´downstream_cells_map¤fâ‚’Ù$db96c894-8e17-46c4-867b-ce8628c80939Ù$56f632a0-e7c8-46da-a9b2-34bb96f053a4²upstream_cells_map‚±searchsortedfirst¤sortÙ$8dedd8b2-0f0a-4523-8503-3c8405b3ef64„´precedence_heuristic§cell_idÙ$8dedd8b2-0f0a-4523-8503-3c8405b3ef64´downstream_cells_map§PlutoUI²upstream_cells_map€Ù$c1e55426-349f-4419-aacc-756b9db75ce5„´precedence_heuristic§cell_idÙ$c1e55426-349f-4419-aacc-756b9db75ce5´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$0b3ae17a-cbed-4b12-b9fb-1ff125ae7774„´precedence_heuristic§cell_idÙ$0b3ae17a-cbed-4b12-b9fb-1ff125ae7774´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindex´cell_execution_order™Ù$8dedd8b2-0f0a-4523-8503-3c8405b3ef64Ù$cad5438e-df75-11eb-1882-e384f5a8554cÙ$c1e55426-349f-4419-aacc-756b9db75ce5Ù$bb6c9fc1-1087-41c2-9685-38734bda7abeÙ$bfc7a793-e646-42bf-9f93-246ffe0f10f1Ù$cdda7a2e-a79b-4585-b39a-c7efc39af10eÙ$db96c894-8e17-46c4-867b-ce8628c80939Ù$0b3ae17a-cbed-4b12-b9fb-1ff125ae7774Ù$56f632a0-e7c8-46da-a9b2-34bb96f053a4©shortpath¨chap6.jl®process_status¥ready¤pathÙ[/home/runner/work/algorithm_problems/algorithm_problems/problems/chapter06/nicetak/chap6.jlªcell_order™Ù$cad5438e-df75-11eb-1882-e384f5a8554cÙ$8dedd8b2-0f0a-4523-8503-3c8405b3ef64Ù$c1e55426-349f-4419-aacc-756b9db75ce5Ù$bb6c9fc1-1087-41c2-9685-38734bda7abeÙ$bfc7a793-e646-42bf-9f93-246ffe0f10f1Ù$cdda7a2e-a79b-4585-b39a-c7efc39af10eÙ$db96c894-8e17-46c4-867b-ce8628c80939Ù$0b3ae17a-cbed-4b12-b9fb-1ff125ae7774Ù$56f632a0-e7c8-46da-a9b2-34bb96f053a4¥nbpkg‡²installed_versions§PlutoUI¥0.7.9°terminal_outputs§PlutoUIÚ[32m[1m  No Changes[22m[39m to `/tmp/jl_YpbFuh/Project.toml`
+[32m[1m  No Changes[22m[39m to `/tmp/jl_YpbFuh/Manifest.toml`
+[32m[1mLoading[22m[39m packages...
+[32m[1mPrecompiling[22m[39m project...
+[32m  âœ“ [39m[90mReexport[39m
+[33m  âœ“ [39m[90mParsers[39m
+[33m  âœ“ [39m[90mJSON[39m
+[32m  âœ“ [39mPlutoUI
+  4 dependencies successfully precompiled in 5 seconds (1 already precompiled)
+  [33m2[39m dependencies precompiled but different versions are currently loaded. Restart julia to access the new versions
+§enabledÃ·restart_recommended_msgÀ´restart_required_msgÀ­busy_packages¬instantiatedÃ«cell_inputs‰Ù$cad5438e-df75-11eb-1882-e384f5a8554c„§cell_idÙ$cad5438e-df75-11eb-1882-e384f5a8554c°running_disabledÂ¤codeÙlmd"""
+# Chapter 6
+#### Nicetak
+ $(import Dates; Dates.format(Dates.today(), Dates.DateFormat("U d, Y")))
+"""«code_foldedÃÙ$bb6c9fc1-1087-41c2-9685-38734bda7abe„§cell_idÙ$bb6c9fc1-1087-41c2-9685-38734bda7abe°running_disabledÂ¤codeÚmd"""
+**ç­”** 
+Juliaã®æ¨™æº–ã‚½ãƒ¼ãƒˆã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ `sort`ãŒ$O(N \log N)$ã§å‹•ä½œã—, å„$a_i$ãŒã‚½ãƒ¼ãƒˆåˆ—ã®ã©ã®ä½ç½®ã«æŒ¿å…¥ã•ã‚Œã‚‹ã‹ã¯`searchsortedfirst`ã«ã‚ˆã£ã¦$O(\log N)$ã§èª¿ã¹ã‚‰ã‚Œ(äºŒåˆ†æ¢ç´¢ã‚ˆã‚Š), ãã‚Œã‚’$N$å›ç¹°ã‚Šè¿”ã›ã°ã‚ˆã„.
+"""«code_foldedÃÙ$db96c894-8e17-46c4-867b-ce8628c80939„§cell_idÙ$db96c894-8e17-46c4-867b-ce8628c80939°running_disabledÂ¤codeÙqwith_terminal() do
+	as = [12, 43, 7, 15, 9]
+	println("Given as = $as,\n")
+	@show fâ‚(as)
+	@show sortperm(as)
+end«code_foldedÃÙ$56f632a0-e7c8-46da-a9b2-34bb96f053a4„§cell_idÙ$56f632a0-e7c8-46da-a9b2-34bb96f053a4°running_disabledÂ¤codeÚ8begin
+	function timeâ‚(A, f)
+		M = size(A)[2]
+
+		for i in 1:M
+			f(A[:, i])
+		end
+	end
+	
+	N, M = 100, 10000
+	A = rand(1:N, N, M)
+	
+	t_fâ‚ = @timed timeâ‚(A, fâ‚)
+	t_sp = @timed timeâ‚(A, sortperm)
+	
+	with_terminal() do
+		println("Time fâ‚: $(t_fâ‚.time)")
+		println("Time sortperm: $(t_sp.time)")
+	end
+end«code_foldedÃÙ$cdda7a2e-a79b-4585-b39a-c7efc39af10e„§cell_idÙ$cdda7a2e-a79b-4585-b39a-c7efc39af10e°running_disabledÂ¤codeÙjmd"""
+ãªãŠ, Juliaã«ã¯æ¨™æº–ã§ã“ã®åº§æ¨™åœ§ç¸®ã‚’è¡Œã†é–¢æ•°`sortperm`ãŒå®Ÿè£…ã•ã‚Œã¦ã„ã‚‹.
+"""«code_foldedÃÙ$bfc7a793-e646-42bf-9f93-246ffe0f10f1„§cell_idÙ$bfc7a793-e646-42bf-9f93-246ffe0f10f1°running_disabledÂ¤codeÙafunction fâ‚(as)
+	as_sorted = sort(as)
+	return [searchsortedfirst(as_sorted, a) for a in as]
+end«code_foldedÂÙ$8dedd8b2-0f0a-4523-8503-3c8405b3ef64„§cell_idÙ$8dedd8b2-0f0a-4523-8503-3c8405b3ef64°running_disabledÂ¤code­using PlutoUI«code_foldedÃÙ$c1e55426-349f-4419-aacc-756b9db75ce5„§cell_idÙ$c1e55426-349f-4419-aacc-756b9db75ce5°running_disabledÂ¤codeÚ0md"""
+## 6.1
+ã©ã®ï¼’è¦ç´ ã‚‚äº’ã„ã«ç›¸ç•°ãªã‚‹$N$è¦ç´ ã‹ã‚‰ãªã‚‹æ•´æ•°åˆ—$a_0, a_1, \dots, a_{N-1}$ãŒä¸ãˆã‚‰ã‚Œã¾ã™.
+$i = 0, 1, \dots, N-1$ã«å¯¾ã—ã¦, $a_i$ãŒå…¨ä½“ã®ä¸­ã§ä½•ç•ªç›®ã«å°ã•ã„å€¤ã§ã‚ã‚‹ã‹ã‚’$O(N \log N)$ã§æ±‚ã‚ã‚‹ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’è¨­è¨ˆã—ã¦ãã ã•ã„.
+"""«code_foldedÃÙ$0b3ae17a-cbed-4b12-b9fb-1ff125ae7774„§cell_idÙ$0b3ae17a-cbed-4b12-b9fb-1ff125ae7774°running_disabledÂ¤codeÙymd"""
+ $N = 100$ã«å¯¾ã—ã¦, $M = 10000$å›ã®è©¦è¡Œã‚’è¡Œã†è¨ˆç®—æ™‚é–“ã‚’æ¯”ã¹ã‚‹ã¨, `sortperm`ãŒã‚„ã‚„æ—©ã„.
+"""«code_foldedÃ«notebook_idÙ$dcd9874e-068e-11ec-3c3d-177937cd7408«in_temp_dirÂ

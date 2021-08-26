@@ -1,0 +1,209 @@
+Œ¥bonds€¬cell_resultsŒÙ$5d4444bc-de82-11eb-346e-a7e0d69e4e6aˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙW<div class="markdown"><h1>Chapter 5</h1>
+<h4>Nicetak</h4>
+<p>August 26, 2021</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòóÜM¬rootassigneeÀ§cell_idÙ$5d4444bc-de82-11eb-346e-a7e0d69e4e6a¹depends_on_disabled_cellsÂ§runtimeÎ;c5§erroredÂÙ$18efecbe-5dc0-407e-913e-b23b7d24f419ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚa		<style>
+div.PlutoUI_terminal {
+    border: 10px solid #cedbd0; /* https://www.vintagecomputer.net/browse_thread.cfm?id=618 */
+    border-radius: 15px;
+    font-size: .65rem;
+    background-color: #333;
+    max-height: 300px;
+    overflow: auto;
+}
+pluto-output div.PlutoUI_terminal pre:not(.no-block) {
+    color: #ddd;
+    background-color: transparent;
+    margin-block-end: 0;
+    height: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+div.PlutoUI_terminal pre.err {
+    color: #ff5f5f;
+}
+</style>
+
+        <div class="PlutoUI_terminal">
+            <pre>Given a &#61; &#91;2, 3, 5&#93;, m &#61; &#91;2, 1, 2&#93;
+W &#61; 10: true
+W &#61; 11: false
+W &#61; 12: true
+W &#61; 13: true
+W &#61; 14: true
+W &#61; 15: true
+W &#61; 16: false
+W &#61; 17: true
+W &#61; 18: false
+W &#61; 19: false
+W &#61; 20: false
+</pre>
+            
+        </div>
+    °persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòa®K¬rootassigneeÀ§cell_idÙ$18efecbe-5dc0-407e-913e-b23b7d24f419¹depends_on_disabled_cellsÂ§runtimeÎg#¯§erroredÂÙ$685e660f-1308-4b28-9ebf-9987fa5f1327ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤body °persist_js_stateÂ¤mimeªtext/plain²last_run_timestampËAØIòÕÉ¬rootassigneeÀ§cell_idÙ$685e660f-1308-4b28-9ebf-9987fa5f1327¹depends_on_disabled_cellsÂ§runtimeÎ	dêØ§erroredÂÙ$df5fc66e-334f-4b78-bd2c-ec85ce5b7cc4ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚğ<div class="markdown"><h2>5.5</h2>
+<p><span class="tex">$N$</span>å€‹ã®æ­£ã®æ•´æ•°<span class="tex">$a_0, a_1, \dots, a_&#123;N-1&#125;$</span>ã¨æ­£ã®æ•´æ•°<span class="tex">$W$</span>ãŒä¸ãˆã‚‰ã‚Œã¾ã™. <span class="tex">$N$</span>å€‹ã®æ•´æ•°ãã‚Œãã‚Œã«ã¤ã„ã¦ä½•å›è¶³ã—ã¦ã‚‚è‰¯ã„ã¨ã—ãŸæ™‚ã«ç·å’Œã‚’<span class="tex">$W$</span>ã«ä¸€è‡´ã•ã›ã‚‹ã‹ã©ã†ã‹ã‚’<span class="tex">$O&#40;NW&#41;$</span>ã§åˆ¤å®šã™ã‚‹ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’è¨­è¨ˆã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòzX`¬rootassigneeÀ§cell_idÙ$df5fc66e-334f-4b78-bd2c-ec85ce5b7cc4¹depends_on_disabled_cellsÂ§runtimeÍœ§erroredÂÙ$ba6eadb4-0fbf-412e-b325-959c7afacfacˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚ<div class="markdown"><h2>5.4</h2>
+<p><span class="tex">$N$</span>å€‹ã®æ­£ã®æ•´æ•°<span class="tex">$a_0, a_1, \dots, a_&#123;N-1&#125;$</span>ã¨æ­£ã®æ•´æ•°<span class="tex">$W$</span>ãŒä¸ãˆã‚‰ã‚Œã¾ã™. <span class="tex">$N$</span>å€‹ã®æ•´æ•°ã‹ã‚‰<span class="tex">$k$</span>å€‹ä»¥ä¸‹ã®æ•´æ•°ã‚’é¸ã‚“ã§ç·å’Œã‚’<span class="tex">$W$</span>ã«ä¸€è‡´ã•ã›ã‚‹ã“ã¨ãŒã§ãã‚‹ã‹ã©ã†ã‹ã‚’<span class="tex">$O&#40;NW&#41;$</span>ã§åˆ¤å®šã™ã‚‹ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’è¨­è¨ˆã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòz;ó¬rootassigneeÀ§cell_idÙ$ba6eadb4-0fbf-412e-b325-959c7afacfac¹depends_on_disabled_cellsÂ§runtimeÍ't§erroredÂÙ$6cf4cc69-aebf-447f-9041-28bb28bfd084ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙÿ<div class="markdown"><p><strong>ç­”</strong> 5.6ã®å€‹æ•°åˆ¶é™ãŒ, <span class="tex">$i \in \&#123;0, 1, \dots, N-1\&#125;$</span>ã«å¯¾ã—ã¦, <span class="tex">$m_i &#61; \lceil W / a_i \rceil$</span> ã®å ´åˆã¨ä¸€è‡´ã™ã‚‹ãŸã‚, çœç•¥.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòzh+¬rootassigneeÀ§cell_idÙ$6cf4cc69-aebf-447f-9041-28bb28bfd084¹depends_on_disabled_cellsÂ§runtimeÍ|§erroredÂÙ$8d3028b4-be25-4946-9281-3ea409ca178aˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ¥<div class="markdown"><p><strong>ä»®å®š:</strong></p>
+<ul>
+<li><p><span class="tex">$1 \le m_n &#36; for &#36;n &#61; 0, 1, \dots, N-1$</span></p>
+</li>
+</ul>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòz†Ë¬rootassigneeÀ§cell_idÙ$8d3028b4-be25-4946-9281-3ea409ca178a¹depends_on_disabled_cellsÂ§runtimeÍ°§erroredÂÙ$0d2baa97-401a-4d8a-8507-284a45aa9f7cˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ<div class="markdown"><p><strong>ä»®å®š:</strong></p>
+<ul>
+<li><p><span class="tex">$1 \le k \le N$</span></p>
+</li>
+</ul>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòzK0¬rootassigneeÀ§cell_idÙ$0d2baa97-401a-4d8a-8507-284a45aa9f7c¹depends_on_disabled_cellsÂ§runtimeÍHD§erroredÂÙ$7e3f714e-7250-4ff5-a815-86da6cddefa6ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ%fâ‚† (generic function with 1 method)°persist_js_stateÂ¤mimeªtext/plain²last_run_timestampËAØIòRÈ¬¬rootassigneeÀ§cell_idÙ$7e3f714e-7250-4ff5-a815-86da6cddefa6¹depends_on_disabled_cellsÂ§runtimeÍÒ'§erroredÂÙ$c5d3896c-a8f8-4490-865d-077aaf2b7c54ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚ¢		<style>
+div.PlutoUI_terminal {
+    border: 10px solid #cedbd0; /* https://www.vintagecomputer.net/browse_thread.cfm?id=618 */
+    border-radius: 15px;
+    font-size: .65rem;
+    background-color: #333;
+    max-height: 300px;
+    overflow: auto;
+}
+pluto-output div.PlutoUI_terminal pre:not(.no-block) {
+    color: #ddd;
+    background-color: transparent;
+    margin-block-end: 0;
+    height: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+div.PlutoUI_terminal pre.err {
+    color: #ff5f5f;
+}
+</style>
+
+        <div class="PlutoUI_terminal">
+            <pre>Given a &#61; &#91;2, 4, 8&#93;, k &#61; 2
+W &#61; 1: false
+W &#61; 2: true
+W &#61; 3: false
+W &#61; 4: true
+W &#61; 5: false
+W &#61; 6: true
+W &#61; 7: false
+W &#61; 8: true
+W &#61; 9: false
+W &#61; 10: true
+W &#61; 11: false
+W &#61; 12: true
+W &#61; 13: false
+W &#61; 14: false
+W &#61; 15: false
+W &#61; 16: false
+</pre>
+            
+        </div>
+    °persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòLôV¬rootassigneeÀ§cell_idÙ$c5d3896c-a8f8-4490-865d-077aaf2b7c54¹depends_on_disabled_cellsÂ§runtimeÎw «§erroredÂÙ$42221a73-c542-47ff-9c01-eea5236e819eˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ%fâ‚„ (generic function with 1 method)°persist_js_stateÂ¤mimeªtext/plain²last_run_timestampËAØIòÂU¬rootassigneeÀ§cell_idÙ$42221a73-c542-47ff-9c01-eea5236e819e¹depends_on_disabled_cellsÂ§runtimeÍÛˆ§erroredÂÙ$4ebd1018-0cc6-4755-9e40-f51dc9e9407fˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚ0<div class="markdown"><h2>5.6</h2>
+<p><span class="tex">$N$</span>å€‹ã®æ­£ã®æ•´æ•°<span class="tex">$a_0, a_1, \dots, a_&#123;N-1&#125;$</span>ã¨æ­£ã®æ•´æ•°<span class="tex">$W$</span>ãŒä¸ãˆã‚‰ã‚Œã¾ã™. <span class="tex">$N$</span>å€‹ã®æ•´æ•°ãã‚Œãã‚Œã«ã¤ã„ã¦<span class="tex">$m_0, m_1, \dots, m_&#123;N-1&#125;$</span>å›ã¾ã§è¶³ã—ã¦ã‚‚è‰¯ã„ã¨ã—ãŸæ™‚ã«ç·å’Œã‚’<span class="tex">$W$</span>ã«ä¸€è‡´ã•ã›ã‚‹ã‹ã©ã†ã‹ã‚’<span class="tex">$O&#40;NW&#41;$</span>ã§åˆ¤å®šã™ã‚‹ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’è¨­è¨ˆã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØIòzxÀ¬rootassigneeÀ§cell_idÙ$4ebd1018-0cc6-4755-9e40-f51dc9e9407f¹depends_on_disabled_cellsÂ§runtimeÍ¨§erroredÂ±cell_dependenciesŒÙ$5d4444bc-de82-11eb-346e-a7e0d69e4e6a„´precedence_heuristic§cell_idÙ$5d4444bc-de82-11eb-346e-a7e0d69e4e6a´downstream_cells_map¥Dates‘Ù$5d4444bc-de82-11eb-346e-a7e0d69e4e6a²upstream_cells_map†§@md_str¥Dates‘Ù$5d4444bc-de82-11eb-346e-a7e0d69e4e6a¬Dates.format«Dates.today°Dates.DateFormat¨getindexÙ$18efecbe-5dc0-407e-913e-b23b7d24f419„´precedence_heuristic§cell_idÙ$18efecbe-5dc0-407e-913e-b23b7d24f419´downstream_cells_map¸anon10116565842755709352²upstream_cells_map„¡:¤fâ‚†‘Ù$7e3f714e-7250-4ff5-a815-86da6cddefa6­with_terminal§printlnÙ$685e660f-1308-4b28-9ebf-9987fa5f1327„´precedence_heuristic§cell_idÙ$685e660f-1308-4b28-9ebf-9987fa5f1327´downstream_cells_map§PlutoUI²upstream_cells_map€Ù$df5fc66e-334f-4b78-bd2c-ec85ce5b7cc4„´precedence_heuristic§cell_idÙ$df5fc66e-334f-4b78-bd2c-ec85ce5b7cc4´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$ba6eadb4-0fbf-412e-b325-959c7afacfac„´precedence_heuristic§cell_idÙ$ba6eadb4-0fbf-412e-b325-959c7afacfac´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$6cf4cc69-aebf-447f-9041-28bb28bfd084„´precedence_heuristic§cell_idÙ$6cf4cc69-aebf-447f-9041-28bb28bfd084´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$8d3028b4-be25-4946-9281-3ea409ca178a„´precedence_heuristic§cell_idÙ$8d3028b4-be25-4946-9281-3ea409ca178a´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$0d2baa97-401a-4d8a-8507-284a45aa9f7c„´precedence_heuristic§cell_idÙ$0d2baa97-401a-4d8a-8507-284a45aa9f7c´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$7e3f714e-7250-4ff5-a815-86da6cddefa6„´precedence_heuristic§cell_idÙ$7e3f714e-7250-4ff5-a815-86da6cddefa6´downstream_cells_map¤fâ‚†‘Ù$18efecbe-5dc0-407e-913e-b23b7d24f419²upstream_cells_map¡:¡>¥zeros¦length¡<£â‰¥¡-¦falses£min£Int¢Ã·¡+¢==Ù$c5d3896c-a8f8-4490-865d-077aaf2b7c54„´precedence_heuristic§cell_idÙ$c5d3896c-a8f8-4490-865d-077aaf2b7c54´downstream_cells_map¸anon13769969598329316910²upstream_cells_map„¤fâ‚„‘Ù$42221a73-c542-47ff-9c01-eea5236e819e¡:­with_terminal§printlnÙ$42221a73-c542-47ff-9c01-eea5236e819e„´precedence_heuristic§cell_idÙ$42221a73-c542-47ff-9c01-eea5236e819e´downstream_cells_map¤fâ‚„‘Ù$c5d3896c-a8f8-4490-865d-077aaf2b7c54²upstream_cells_map‹¡:¡>¥zeros¦length¡<£â‰¥¡-¦falses£Int¡+¢==Ù$4ebd1018-0cc6-4755-9e40-f51dc9e9407f„´precedence_heuristic§cell_idÙ$4ebd1018-0cc6-4755-9e40-f51dc9e9407f´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindex´cell_execution_orderœÙ$685e660f-1308-4b28-9ebf-9987fa5f1327Ù$5d4444bc-de82-11eb-346e-a7e0d69e4e6aÙ$ba6eadb4-0fbf-412e-b325-959c7afacfacÙ$0d2baa97-401a-4d8a-8507-284a45aa9f7cÙ$42221a73-c542-47ff-9c01-eea5236e819eÙ$c5d3896c-a8f8-4490-865d-077aaf2b7c54Ù$df5fc66e-334f-4b78-bd2c-ec85ce5b7cc4Ù$6cf4cc69-aebf-447f-9041-28bb28bfd084Ù$4ebd1018-0cc6-4755-9e40-f51dc9e9407fÙ$8d3028b4-be25-4946-9281-3ea409ca178aÙ$7e3f714e-7250-4ff5-a815-86da6cddefa6Ù$18efecbe-5dc0-407e-913e-b23b7d24f419©shortpath¨chap5.jl®process_status¥ready¤pathÙ[/home/runner/work/algorithm_problems/algorithm_problems/problems/chapter05/nicetak/chap5.jlªcell_orderœÙ$5d4444bc-de82-11eb-346e-a7e0d69e4e6aÙ$685e660f-1308-4b28-9ebf-9987fa5f1327Ù$ba6eadb4-0fbf-412e-b325-959c7afacfacÙ$0d2baa97-401a-4d8a-8507-284a45aa9f7cÙ$42221a73-c542-47ff-9c01-eea5236e819eÙ$c5d3896c-a8f8-4490-865d-077aaf2b7c54Ù$df5fc66e-334f-4b78-bd2c-ec85ce5b7cc4Ù$6cf4cc69-aebf-447f-9041-28bb28bfd084Ù$4ebd1018-0cc6-4755-9e40-f51dc9e9407fÙ$8d3028b4-be25-4946-9281-3ea409ca178aÙ$7e3f714e-7250-4ff5-a815-86da6cddefa6Ù$18efecbe-5dc0-407e-913e-b23b7d24f419¥nbpkg‡²installed_versions§PlutoUI¥0.7.9°terminal_outputs§PlutoUIÚÕ[32m[1m  No Changes[22m[39m to `/tmp/jl_RJvL4h/Project.toml`
+[32m[1m  No Changes[22m[39m to `/tmp/jl_RJvL4h/Manifest.toml`
+[32m[1mLoading[22m[39m packages...
+[32m[1mPrecompiling[22m[39m project...
+[33m  âœ“ [39m[90mJSON[39m
+[32m  âœ“ [39mPlutoUI
+  2 dependencies successfully precompiled in 3 seconds (3 already precompiled)
+  [33m1[39m dependency precompiled but a different version is currently loaded. Restart julia to access the new version
+§enabledÃ·restart_recommended_msgÀ´restart_required_msgÀ­busy_packages¬instantiatedÃ«cell_inputsŒÙ$5d4444bc-de82-11eb-346e-a7e0d69e4e6a„§cell_idÙ$5d4444bc-de82-11eb-346e-a7e0d69e4e6a°running_disabledÂ¤codeÙlmd"""
+# Chapter 5
+#### Nicetak
+ $(import Dates; Dates.format(Dates.today(), Dates.DateFormat("U d, Y")))
+"""«code_foldedÃÙ$18efecbe-5dc0-407e-913e-b23b7d24f419„§cell_idÙ$18efecbe-5dc0-407e-913e-b23b7d24f419°running_disabledÂ¤codeÙ–with_terminal() do
+	as = [2, 3, 5]
+	ms = [2, 1, 2]
+	println("Given a = $as, m = $ms")
+	for W in 10:20
+		println("W = $W: $(fâ‚†(as, ms, W))")
+	end
+end«code_foldedÃÙ$685e660f-1308-4b28-9ebf-9987fa5f1327„§cell_idÙ$685e660f-1308-4b28-9ebf-9987fa5f1327°running_disabledÂ¤code¸begin
+	using PlutoUI
+end«code_foldedÃÙ$df5fc66e-334f-4b78-bd2c-ec85ce5b7cc4„§cell_idÙ$df5fc66e-334f-4b78-bd2c-ec85ce5b7cc4°running_disabledÂ¤codeÚ)md"""
+## 5.5
+ $N$å€‹ã®æ­£ã®æ•´æ•°$a_0, a_1, \dots, a_{N-1}$ã¨æ­£ã®æ•´æ•°$W$ãŒä¸ãˆã‚‰ã‚Œã¾ã™.
+$N$å€‹ã®æ•´æ•°ãã‚Œãã‚Œã«ã¤ã„ã¦ä½•å›è¶³ã—ã¦ã‚‚è‰¯ã„ã¨ã—ãŸæ™‚ã«ç·å’Œã‚’$W$ã«ä¸€è‡´ã•ã›ã‚‹ã‹ã©ã†ã‹ã‚’$O(NW)$ã§åˆ¤å®šã™ã‚‹ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’è¨­è¨ˆã—ã¦ãã ã•ã„.
+"""«code_foldedÃÙ$ba6eadb4-0fbf-412e-b325-959c7afacfac„§cell_idÙ$ba6eadb4-0fbf-412e-b325-959c7afacfac°running_disabledÂ¤codeÚ#md"""
+## 5.4
+ $N$å€‹ã®æ­£ã®æ•´æ•°$a_0, a_1, \dots, a_{N-1}$ã¨æ­£ã®æ•´æ•°$W$ãŒä¸ãˆã‚‰ã‚Œã¾ã™. $N$å€‹ã®æ•´æ•°ã‹ã‚‰$k$å€‹ä»¥ä¸‹ã®æ•´æ•°ã‚’é¸ã‚“ã§ç·å’Œã‚’$W$ã«ä¸€è‡´ã•ã›ã‚‹ã“ã¨ãŒã§ãã‚‹ã‹ã©ã†ã‹ã‚’$O(NW)$ã§åˆ¤å®šã™ã‚‹ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’è¨­è¨ˆã—ã¦ãã ã•ã„.
+"""«code_foldedÃÙ$6cf4cc69-aebf-447f-9041-28bb28bfd084„§cell_idÙ$6cf4cc69-aebf-447f-9041-28bb28bfd084°running_disabledÂ¤codeÙ˜md"""
+**ç­”**
+5.6ã®å€‹æ•°åˆ¶é™ãŒ, $i \in \{0, 1, \dots, N-1\}$ã«å¯¾ã—ã¦, $m_i = \lceil W / a_i \rceil$
+ã®å ´åˆã¨ä¸€è‡´ã™ã‚‹ãŸã‚, çœç•¥.
+"""«code_foldedÃÙ$8d3028b4-be25-4946-9281-3ea409ca178a„§cell_idÙ$8d3028b4-be25-4946-9281-3ea409ca178a°running_disabledÂ¤codeÙ@md"""
+**ä»®å®š:**
+-  $1 \le m_n $ for $n = 0, 1, \dots, N-1$
+"""«code_foldedÃÙ$0d2baa97-401a-4d8a-8507-284a45aa9f7c„§cell_idÙ$0d2baa97-401a-4d8a-8507-284a45aa9f7c°running_disabledÂ¤codeÙ(md"""
+**ä»®å®š:**
+-  $1 \le k \le N$
+"""«code_foldedÃÙ$7e3f714e-7250-4ff5-a815-86da6cddefa6„§cell_idÙ$7e3f714e-7250-4ff5-a815-86da6cddefa6°running_disabledÂ¤codeÚˆfunction fâ‚†(as, ms, W)
+	N = length(as)
+	dp = falses(N, W)
+	nums = zeros(Int, N, W) # Minimum number of aâ‚™ to achieve dp cells
+	
+	# First row
+	if W â‰¥ as[1]
+		for i in 1:min(ms[1], (W Ã· as[1]))
+			dp[1, as[1] * i] = true
+			nums[1, as[1] * i] = i
+		end
+	end
+	
+	# Second and later rows
+	for n in 2:N, w in 1:W
+		if dp[n-1, w]
+			dp[n, w] = true
+		elseif w == as[n]
+			dp[n, w] = true
+			nums[n, w] = 1
+		elseif w > as[n] && dp[n - 1, w - as[n]]
+			dp[n, w] = true
+			nums[n, w] = 1
+		elseif w > as[n] && dp[n, w - as[n]] && nums[n, w - as[n]] < ms[n]
+			dp[n, w] = true
+			nums[n, w] = nums[n, w - as[n]] + 1
+		end
+	end
+	
+	
+	return dp[N, W]
+end«code_foldedÂÙ$c5d3896c-a8f8-4490-865d-077aaf2b7c54„§cell_idÙ$c5d3896c-a8f8-4490-865d-077aaf2b7c54°running_disabledÂ¤codeÙŠwith_terminal() do
+	as = [2, 4, 8]
+	k = 2
+	println("Given a = $as, k = $k")
+	for W in 1:16
+		println("W = $W: $(fâ‚„(as, W, k))")
+	end
+end«code_foldedÃÙ$42221a73-c542-47ff-9c01-eea5236e819e„§cell_idÙ$42221a73-c542-47ff-9c01-eea5236e819e°running_disabledÂ¤codeÚ!function fâ‚„(as, W, k)
+	N = length(as)
+	dp = falses(N, W)
+	nums = zeros(Int, N, W) # Minimum number of as to achieve dp cells
+	
+	#First row
+	if W â‰¥ as[1]
+		dp[1, as[1]] = true
+		nums[1, as[1]] = 1
+	end
+	# Second and later rows
+	for n in 2:N, w in 1:W
+		if dp[n-1, w]
+			dp[n, w] = true
+			nums[n, w] = nums[n - 1, w]
+		elseif w == as[n]
+			dp[n, w] = true
+			nums[n, w] = 1
+		elseif w > as[n] && dp[n - 1, w - as[n]] && nums[n - 1, w - as[n]] < k
+			dp[n, w] = true
+			nums[n, w] = nums[n - 1, w - as[n]] + 1
+		end
+	end
+	
+	return dp[N, W]
+end«code_foldedÂÙ$4ebd1018-0cc6-4755-9e40-f51dc9e9407f„§cell_idÙ$4ebd1018-0cc6-4755-9e40-f51dc9e9407f°running_disabledÂ¤codeÚFmd"""
+## 5.6
+ $N$å€‹ã®æ­£ã®æ•´æ•°$a_0, a_1, \dots, a_{N-1}$ã¨æ­£ã®æ•´æ•°$W$ãŒä¸ãˆã‚‰ã‚Œã¾ã™.
+$N$å€‹ã®æ•´æ•°ãã‚Œãã‚Œã«ã¤ã„ã¦$m_0, m_1, \dots, m_{N-1}$å›ã¾ã§è¶³ã—ã¦ã‚‚è‰¯ã„ã¨ã—ãŸæ™‚ã«ç·å’Œã‚’$W$ã«ä¸€è‡´ã•ã›ã‚‹ã‹ã©ã†ã‹ã‚’$O(NW)$ã§åˆ¤å®šã™ã‚‹ã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã‚’è¨­è¨ˆã—ã¦ãã ã•ã„.
+"""«code_foldedÃ«notebook_idÙ$e759fc44-068e-11ec-30b2-91409917ec8f«in_temp_dirÂ
