@@ -4,6 +4,15 @@
 using Markdown
 using InteractiveUtils
 
+# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
+macro bind(def, element)
+    quote
+        local el = $(esc(element))
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : missing
+        el
+    end
+end
+
 # ╔═╡ 8c64d70d-f46b-4ae4-9b43-53d7fd461efe
 begin
 	using PlutoUI
@@ -189,8 +198,150 @@ md"""
 1.2.2節で見たような迷路について, 迷路のサイズをH×Wとして, スタートからゴールまでたどり着く最短路を$O(HW)$で求めるアルゴリズムを設計してください.
 """
 
-# ╔═╡ 0e523d1f-9b05-46ae-a5f2-d6b6930ba0eb
+# ╔═╡ 96f1ac18-95c9-47a1-b4b8-f0ebfc24a762
+mutable struct Puzzle
+	height::Int
+	width::Int
+	xₛ::Int
+	yₛ::Int
+	xₑ::Int
+	yₑ::Int
+	M::Array{Bool, 2}
+end
 
+# ╔═╡ 2991eb47-6667-474d-9967-126d2fdf9f09
+function str_to_puzzle(s)
+	ls = split(s, "\n")
+	height, width = parse.(Int, split(ls[1]))
+	
+	xₛ, yₛ, xₑ, yₑ = 0, 0, 0, 0
+	M = trues(height, width)
+	
+	for i = 1:height, j = 1:width
+		e =ls[i+1][j]
+		if e == '#'
+			M[i, j] = false
+		elseif e == 'S'
+			xₛ, yₛ = i, j		
+		elseif e == 'G'
+			xₑ, yₑ = i, j
+		end
+	end
+	
+	
+	return Puzzle(height, width, xₛ, yₛ, xₑ, yₑ, M)
+end
+
+# ╔═╡ b612f9b9-3128-446f-8940-1c4d86df64db
+function f₄(pz::Puzzle)
+	dx = [1, 0, -1, 0]
+	dy = [0, 1, 0, -1]
+	
+	dists = -ones(Int, pz.height, pz.width)
+	dists[pz.xₛ, pz.yₛ] = 0
+	
+	prevs_x = -ones(Int, pz.height, pz.width)
+	prevs_y = similar(prevs_x)
+	
+	que = Queue{Tuple{Int, Int}}()
+	enqueue!(que, (pz.xₛ, pz.yₛ))
+	
+	while !isempty(que)
+		x, y = dequeue!(que)
+		for d = 1:4
+			x′ = x + dx[d]
+			y′ = y + dy[d]
+			if 1 ≤ x′ ≤ pz.width && 1 ≤ y′ ≤ pz.height && 
+				pz.M[x′, y′] && dists[x′, y′] == -1
+				
+				enqueue!(que, (x′, y′))
+				dists[x′, y′] = dists[x, y] + 1
+				prevs_x[x′, y′] = x
+				prevs_y[x′, y′] = y
+				
+			end
+		end
+	end
+	
+	n = dists[pz.xₑ, pz.yₑ]
+	steps = [(0, 0) for _ = 1:n+1]
+	steps[n+1] = (pz.xₑ, pz.yₑ)
+	for i = n+1:-1:2
+		x, y = steps[i]
+		steps[i-1] = (prevs_x[x, y], prevs_y[x, y])
+	end
+	
+	return steps, dists
+end
+
+# ╔═╡ 288312ad-71d5-40c8-adad-8fba1f987d98
+md"""
+Distance $( @bind show_dist CheckBox())
+Path $( @bind show_path CheckBox())
+"""
+
+# ╔═╡ 0e523d1f-9b05-46ae-a5f2-d6b6930ba0eb
+let
+	s = "8 8
+.#....#G
+.#.#....
+...#.##.
+#.##...#
+...###.#
+.#.....#
+...#.#..
+S......."
+	
+	pz = str_to_puzzle(s)
+	steps, dists = f₄(pz)
+	
+	# Map
+	rectangle(w, h, x, y) = Shape(x .+ [0,w,w,0], y .+ [0,0,h,h])
+	plot()
+	for i = 1:pz.height, j = 1:pz.width
+		if i == pz.xₛ && j == pz.yₛ
+			plot!(rectangle(1,1,j, pz.height+1 - i), opacity=.2, color = :blue)
+		elseif i == pz.xₑ && j == pz.yₑ
+			plot!(rectangle(1,1,j, pz.height+1 - i), opacity=.2, color = :orange)
+		elseif pz.M[i, j]
+			plot!(rectangle(1,1,j, pz.height+1 - i), opacity=.2, color = :white)
+		else
+			plot!(rectangle(1,1,j, pz.height+1 - i), opacity=.5, color = :black)
+		end
+	end
+	
+	# Distance
+	if show_dist
+		for i = 1:pz.height, j = 1:pz.width
+			pz.M[i, j] && annotate!(j+.5, pz.height + 1 - i+.5, dists[i, j])
+		end
+	else
+		annotate!(pz.yₛ + .5, pz.height + 1 - pz.xₛ + .5, "S")
+		annotate!(pz.yₑ + .5, pz.height + 1 - pz.xₑ + .5, "G")
+	end
+	
+	# Path
+	if show_path
+		for i in 1:length(steps)-1
+			plot!([steps[i+1][2]+.5, steps[i][2]+.5],
+				pz.height+2 .- [steps[i+1][1]+.5, steps[i][1]+.5], 
+				opacity=.5,
+				color = :red,
+				linewidth = 4
+			)
+		end
+	end
+	
+	
+	
+	
+	# Plot
+	plot!(legend=false, 
+		aspectratio=1, 
+		xlims=(1,pz.width+1), 
+		ylims=(1,pz.height+1), 
+		axis=nothing)
+end
 
 # ╔═╡ 137942e1-2815-4bc4-9ba2-8efa48113a32
 md"""
@@ -263,8 +414,40 @@ md"""
 有向グラフ$G=(V, E)$が有向サイクルを含むかどうかを判定し, 含むならば具体的に1つ求めるアルゴリズムを設計してください.
 """
 
-# ╔═╡ 662bce03-e461-4e7c-9827-f327c7da6754
+# ╔═╡ ac9fa9a8-72dd-4ca5-964f-16aa231f4d96
+function f₆(G)
+	n = length(G)
+	ts = f₅(G)
+	return collect(setdiff(Set(1:n), Set(ts)))
+end
 
+# ╔═╡ 662bce03-e461-4e7c-9827-f327c7da6754
+let
+	edges = [
+		1 6
+		2 4
+		2 7
+		3 6
+		3 8
+		4 1
+		4 8
+		5 2
+		5 3
+		7 5
+		7 8
+		8 1
+	]
+	
+	G = edges_to_graph(edges, 8, is_directed=true)
+	graphplot(G,
+		names=0:7,
+		curves=false,
+		nodeshape=:circle,
+		fontsize=20,
+		title="Cycle: $(f₆(G) .- 1)")
+	
+	
+end
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1191,11 +1374,16 @@ version = "0.9.1+5"
 # ╠═5f1297fe-1368-4695-99a0-a26582fe53da
 # ╟─8e5274a8-b024-4a47-a630-5206de4a82cd
 # ╟─60029bce-d61d-4feb-bfe2-ad0623c30fb4
-# ╠═0e523d1f-9b05-46ae-a5f2-d6b6930ba0eb
+# ╠═96f1ac18-95c9-47a1-b4b8-f0ebfc24a762
+# ╟─2991eb47-6667-474d-9967-126d2fdf9f09
+# ╠═b612f9b9-3128-446f-8940-1c4d86df64db
+# ╟─288312ad-71d5-40c8-adad-8fba1f987d98
+# ╟─0e523d1f-9b05-46ae-a5f2-d6b6930ba0eb
 # ╟─137942e1-2815-4bc4-9ba2-8efa48113a32
 # ╠═f0fee254-67e7-4e54-9dff-529dca6d9dae
 # ╟─87d201d1-00c3-4d90-84b7-e7b989902bba
 # ╟─a5a7bb2e-f278-418d-96dc-e10a01392550
-# ╠═662bce03-e461-4e7c-9827-f327c7da6754
+# ╠═ac9fa9a8-72dd-4ca5-964f-16aa231f4d96
+# ╟─662bce03-e461-4e7c-9827-f327c7da6754
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
