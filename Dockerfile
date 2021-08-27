@@ -4,7 +4,7 @@ LABEL maintainer="Tokuma Suzuki tokuma.suzuki09@gmail.com"
 ENV SHELL /bin/bash
 ENV DEBIAN_FRONTEND noninteractive
 ENV JULIA_MINOR_VERSION=1.6
-ENV JULIA_PATCH_VERSION=1
+ENV JULIA_PATCH_VERSION=2
 
 ## C++のビルドなどに必要なものを入れる
 RUN apt-get update && apt-get install -y \
@@ -28,15 +28,12 @@ RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r /tmp/requirements.txt
 
 # Julia Packages
-WORKDIR /workspaces/algorithm_problems
-ENV JULIA_PROJECT=//workspaces/algorithm_problems
+ENV JULIA_PROJECT=/workspaces/algorithm_problems
 COPY ./Project.toml /workspaces/algorithm_problems/Project.toml
-RUN rm -f ./Manifest.toml && julia -e 'using Pkg; \
-Pkg.activate("."); \
+RUN julia -e 'using Pkg; \
+Pkg.activate("/workspaces/algorithm_problems"); \
 Pkg.instantiate(); \
 Pkg.precompile(); \
-' && \
-# Check Julia version \
-julia -e 'using InteractiveUtils; versioninfo()'
+'
 
 CMD ["/bin/bash"]

@@ -366,7 +366,7 @@ function f₅(G)
 		num_ins[i] == 0 && enqueue!(que, i)
 	end
 	
-	ans = Vector{Int}()
+	ans = MutableLinkedList{Int}()
 	while !isempty(que)
 		now = dequeue!(que)
 		pushfirst!(ans, now)
@@ -376,7 +376,7 @@ function f₅(G)
 		end
 	end
 	
-	return ans
+	return collect(ans)
 end
 
 # ╔═╡ 87d201d1-00c3-4d90-84b7-e7b989902bba
