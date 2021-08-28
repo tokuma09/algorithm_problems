@@ -58,16 +58,10 @@ function f₃(as, K)
 	h = BinaryMaxHeap(as[1:K])
 	aₖ = first(h)
 	println(aₖ)
-	for i in K+1:length(as)
-		a = as[i]
-		p = pop!(h)
-		if a ≥ p
-			println(p)
-			push!(h, p)
-		else
-			push!(h, a)
-			println(first(h))
-		end
+	for a ∈ as[K+1:end]
+		push!(h, a)
+		pop!(h)
+		println(first(h))
 	end
 end
 
@@ -151,9 +145,13 @@ $|s_1|, |s_3| \le \frac{7N}{10}$.
 以上の議論から,
 
 $T(N) = T\left(\frac{N}{5}\right) + T\left(\frac{7N}{10}\right) + O(N).$
-これは教科書12.4.3と同様の議論から, $\frac{N}{5} + \frac{7N}{10} < N$より, $T(N) = O(N)$.
+ここで教科書12.4.3と同様に適切な$N$をとり, $T(N)$を展開すると, 二項定理から, 
 
-*参考: [選択アルゴリズム：線形](https://37zigen.com/selection-algorithm/)*
+$T(N) = T\left(\frac{N}{5} + \frac{7N}{10}\right) + O(N) + O\left(\frac{N}{5} + \frac{7N}{10}\right)$.
+
+よって, $\frac{N}{5} + \frac{7N}{10} < N$より, $T(N) = O(N)$.
+
+*参考*: [選択アルゴリズム：線形](https://37zigen.com/selection-algorithm/)
 """
 
 # ╔═╡ f8969802-f005-43c2-964a-707088d61452
