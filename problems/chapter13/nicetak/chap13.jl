@@ -415,10 +415,48 @@ md"""
 """
 
 # ╔═╡ ac9fa9a8-72dd-4ca5-964f-16aa231f4d96
-function f₆(G)
-	n = length(G)
-	ts = f₅(G)
-	return collect(setdiff(Set(1:n), Set(ts)))
+begin
+	function f₆(G)
+		n = length(G)
+		seens = falses(n)
+		fins = falses(n)
+		st_hist = Stack{Int}()
+		has_cycle = false
+		
+		function dfs(G, v)
+			seens[v] = true
+			push!(st_hist, v)
+
+			for v′ ∈ G[v]
+				if fins[v′]
+					#Skip
+				elseif seens[v′] && !fins[v′]
+					has_cycle = true
+					return
+				else
+					dfs(G, v′)	
+					has_cycle && return
+				end
+			end
+
+			pop!(st_hist)
+			fins[v] = true
+
+			return
+		end
+		
+		for i = 1:n
+			if !fins[i]
+				dfs(G, i)
+			end
+			
+			has_cycle && break
+		end
+		
+		return collect(st_hist)
+	end
+	
+	
 end
 
 # ╔═╡ 662bce03-e461-4e7c-9827-f327c7da6754
@@ -1365,7 +1403,7 @@ version = "0.9.1+5"
 # ╠═8c64d70d-f46b-4ae4-9b43-53d7fd461efe
 # ╟─5ee0cdc1-ac4b-4664-b350-daa3c3179806
 # ╠═f535e226-0c5c-47d5-ab6b-d3590ba14e4d
-# ╠═f3577938-4381-45a5-88b2-ab06f0f16529
+# ╟─f3577938-4381-45a5-88b2-ab06f0f16529
 # ╟─d8d0fddf-2853-4fa0-bc3a-585773b58a3b
 # ╟─f6899ade-339e-4365-8dd5-c229dc9db42f
 # ╠═b60d06df-a58f-4a6f-9afc-b46478f4c142
