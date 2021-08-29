@@ -1,4 +1,6 @@
 # https://atcoder.jp/contests/dp/tasks/dp_g
+import sys
+sys.setrecursionlimit(100000)
 
 # dfs for topological sort
 def dfs(G, n, seen, sort_list):
