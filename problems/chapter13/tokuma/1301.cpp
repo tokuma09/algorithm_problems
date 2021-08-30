@@ -34,7 +34,7 @@ int main()
         int a, b;
         cin >> a >> b;
         G[a].push_back(b);
-        G[b].push_back(a)
+        G[b].push_back(a);
     }
 
     //探索
@@ -55,4 +55,5 @@ int main()
         // その数だけ連結出ないグラフがあることがわかる
         ++num;
     }
+    cout << num << endl;
 }

@@ -64,6 +64,8 @@ int main()
     {
         int a, b;
         cin >> a >> b;
+        --a;
+        --b;
         G[a].push_back(b);
     }
 
