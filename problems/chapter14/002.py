@@ -17,17 +17,17 @@ def main():
                 continue
             for nxt, w in G[v]:
                 if dist[nxt] < dist[v] + w:
-                    dist[nxt] = dist[v] +w
+                    dist[nxt] = dist[v] + w
                     update = True
+                    if i == N-1:
+                        # to judge if positive cycle reach to N
+                        dist[nxt] = float('inf') 
         if not update:
             break
-        if i == N-1 and update:
-            exist_positive_cycle = True
+        # if i == N-1 and update:
+        #     exist_positive_cycle = True
 
-    if exist_positive_cycle:
-        print('inf')
-    else:
-        print(dist[-1])
+    print(dist[-1])
 
 if __name__=='__main__':
     main()
