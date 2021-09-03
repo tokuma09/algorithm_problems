@@ -1,3 +1,6 @@
+// AtCoder ARC005   C - 器物損壊！高橋君
+// https://atcoder.jp/contests/arc005/tasks/arc005_3
+
 #include <bits/stdc++.h>
 using namespace std;
 

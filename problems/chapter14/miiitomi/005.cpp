@@ -1,3 +1,6 @@
+// AtCoder ARC084   D - Small Multiple
+// https://atcoder.jp/contests/arc084/tasks/arc084_b
+
 #include <bits/stdc++.h>
 using namespace std;
 const int INF = (1 << 30);
