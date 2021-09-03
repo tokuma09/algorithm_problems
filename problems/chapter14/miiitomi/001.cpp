@@ -1,3 +1,6 @@
+// AtCoder Educational DP Contest   G - Longest Path
+// https://atcoder.jp/contests/dp/tasks/dp_g
+
 #include <bits/stdc++.h>
 using namespace std;
 
