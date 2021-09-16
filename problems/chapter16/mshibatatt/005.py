@@ -1,5 +1,4 @@
-# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=1163&lang=jp
-from math import gcd
+# https://atcoder.jp/contests/soundhound2018/tasks/soundhound2018_c
 import sys
 sys.setrecursionlimit(10000)
 
@@ -46,36 +45,38 @@ class FordFulkerson:
         return flow
 
 def main():
-    m, n = map(int, input().split())
-    if m == n == 0:
-        return True
-    blue = list(map(int, input().split()))
-    red = list(map(int, input().split()))
-    
-    s = 0
-    t = m + n + 1
-    ff = FordFulkerson(t+1)
-    
-    # index of blue cards are i
-    for i in range(1, m+1):
-        ff.add_edge(0, i, 1)
-    # index of red cards are j
-    for j in range(m+1, t):
-        ff.add_edge(j, t, 1)
-            
-    for i in range(1, m+1):
-        for j in range(m+1, t):
-            b = blue[i-1]
-            r = red[j-m-1]
-            if gcd(b, r) > 1:
-                ff.add_edge(i, j, 1)
+    r, c = map(int, input().split())
+    N = r * c
+    G = []
+    for _ in range(r):
+        G.append(input())
 
-    output = ff.flow(s, t)
+    ff = FordFulkerson(N+2)
+    size = 0
+    # make two side graph
+    # N: start, N+1: goal
+    for i in range(r):
+        for j in range(c):
+            if G[i][j] == '.':
+                color = (i + j) % 2
+                v = i*c + j
+                size += 1
+                if color:
+                    ff.add_edge(N, v, 1)
+                    if i > 0 and G[i-1][j] == '.':
+                        ff.add_edge(v, v-c, 1)
+                    if j > 0 and G[i][j-1] == '.':
+                        ff.add_edge(v, v-1, 1)
+                else:
+                    ff.add_edge(v, N+1, 1)              
+                    if i > 0 and G[i-1][j] == '.':
+                        ff.add_edge(v-c, v, 1)
+                    if j > 0 and G[i][j-1] == '.':
+                        ff.add_edge(v-1, v, 1)
+                  
 
+    output = size - ff.flow(N, N+1)
     print(output)
-    return False
 
-if __name__ == '__main__':
-    while True:
-        if main():
-            break
+if __name__=='__main__':
+    main()
