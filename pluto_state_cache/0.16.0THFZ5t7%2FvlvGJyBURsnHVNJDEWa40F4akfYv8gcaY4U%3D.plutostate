@@ -1,0 +1,59 @@
+Œ¥bonds€¬cell_results‹Ù$a6075125-eb1f-4486-9e51-185ff559dbcdˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙÍ<div class="markdown"><h2>10.1</h2>
+<p>é ‚ç‚¹æ•°ãŒ <span class="tex">$N$</span> ã®äºŒåˆ†æœ¨ã«ãŠã„ã¦, é«˜ã•ãŒ <span class="tex">$N-1$</span> ã¨ãªã‚‹ã‚ˆã†ãªä¾‹ã‚’ã‚ã’ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»\¬rootassigneeÀ§cell_idÙ$a6075125-eb1f-4486-9e51-185ff559dbcd¹depends_on_disabled_cellsÂ§runtimeÍ!ü§erroredÂÙ$2c6c91c2-9c7d-4ae2-9d0d-f66e891845bdˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ¬<div class="markdown"><h2>10.4</h2>
+<p>å¼·å¹³è¡¡äºŒåˆ†æœ¨ã®é«˜ã•ãŒ<span class="tex">$h &#61; O&#40;\log N&#41;$</span>ã¨ãªã‚‹ã“ã¨ã‚’ç¤ºã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»Mù¬rootassigneeÀ§cell_idÙ$2c6c91c2-9c7d-4ae2-9d0d-f66e891845bd¹depends_on_disabled_cellsÂ§runtimeÍ§erroredÂÙ$c015fddb-a32c-4ade-ba0c-336b0197fc00ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚ`<div class="markdown"><p><strong>ç­”.</strong> <span class="tex">$N &#61; 1$</span>ã®æ™‚ã¯è‡ªæ˜. é ‚ç‚¹æ•° <span class="tex">$N$</span> ã®æœ¨ã®è¾ºæ•°ãŒ <span class="tex">$N- 1$</span> ã¨ä»®å®šã™ã‚‹. ä»»æ„ã®é ‚ç‚¹æ•° <span class="tex">$N&#43;1$</span> ã®æœ¨ã¯, é ‚ç‚¹æ•° <span class="tex">$N$</span>ã®æœ¨ã«ä¸€ã¤ã®é ‚ç‚¹ã‚’åŠ ãˆãŸã‚‚ã®ã§ã‚ã‚‹. ã“ã®æ“ä½œã®éš›ã«å¢—ãˆã‚‹è¾ºã®æ•°ã¯, æœ¨ã®å®šç¾©ã‹ã‚‰, 1ã§ã‚ã‚‹. ã—ãŸãŒã£ã¦, é ‚ç‚¹æ•° <span class="tex">$N&#43;1$</span> ã®æœ¨ã®è¾ºæ•°ã¯ <span class="tex">$N$</span> ã§ã‚ã‚Š, å¸°ç´æ³•ã‹ã‚‰å‘½é¡Œã¯ç¤ºã•ã‚ŒãŸ.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»y¬rootassigneeÀ§cell_idÙ$c015fddb-a32c-4ade-ba0c-336b0197fc00¹depends_on_disabled_cellsÂ§runtimeÍ§erroredÂÙ$0a789e1a-f359-445a-bacf-f5bebdbf91f3ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙÜ<div class="markdown"><h2>10.3</h2>
+<p>ç©ºã®ãƒ’ãƒ¼ãƒ—ã«7å€‹ã®æ•´æ•°5, 6, 1, 2, 7, 3, 4ã‚’ã“ã®é †ã«æŒ¿å…¥ã—ã¦å¾—ã‚‰ã‚Œã‚‹ãƒ’ãƒ¼ãƒ—ã«ã¤ã„ã¦, é…åˆ—ã§è¡¨ã—ãŸã¨ãã®æ§˜å­ã‚’ç¤ºã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»3{¬rootassigneeÀ§cell_idÙ$0a789e1a-f359-445a-bacf-f5bebdbf91f3¹depends_on_disabled_cellsÂ§runtimeÍ§erroredÂÙ$f05593a8-cdd7-4ae0-bfe9-6d70a17c356dˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙK<div class="markdown"><p><strong>ç­”.</strong> &#91;6, 5, 1&#93;</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»(J¬rootassigneeÀ§cell_idÙ$f05593a8-cdd7-4ae0-bfe9-6d70a17c356d¹depends_on_disabled_cellsÂ§runtimeÍ$§erroredÂÙ$7a15992c-8c54-41cf-bd3f-4bb657b922edˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙW<div class="markdown"><p><strong>ç­”.</strong> &#91;7, 6, 4, 2, 5, 1, 3&#93;</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»?¬rootassigneeÀ§cell_idÙ$7a15992c-8c54-41cf-bd3f-4bb657b922ed¹depends_on_disabled_cellsÂ§runtimeÍ\§erroredÂÙ$89478c0a-9a09-4bf6-96a4-d166d184e126ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙµ<div class="markdown"><h2>10.5</h2>
+<p>é ‚ç‚¹æ•°ãŒ <span class="tex">$N$</span> ã®æœ¨ã®è¾ºæ•°ãŒ <span class="tex">$N-1$</span>ã§ã‚ã‚‹ã“ã¨ã‚’ç¤ºã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»jÊ¬rootassigneeÀ§cell_idÙ$89478c0a-9a09-4bf6-96a4-d166d184e126¹depends_on_disabled_cellsÂ§runtimeÍ´§erroredÂÙ$12155e72-f81e-4506-bb4a-087144245ceeˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙq<div class="markdown"><p><strong>ç­”.</strong> åŒ—æ–—ç¥æ‹³ã®ç¶™æ‰¿è€…&#40;ä¸€å­ç›¸ä¼ã®ãŸã‚&#41;</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»¬rootassigneeÀ§cell_idÙ$12155e72-f81e-4506-bb4a-087144245cee¹depends_on_disabled_cellsÂ§runtimeÍ³§erroredÂÙ$e99a2952-e0be-4afb-8ee1-6438828ceb01ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚˆ<div class="markdown"><p><strong>ç­”.</strong> é«˜ã•<span class="tex">$h$</span>æ®µç›®ã«å…¥ã‚‹è¦ç´ æ•°ã¯<span class="tex">$2^h$</span>ã§ã‚ã‚Š, å¼·å¹³è¡¡äºŒåˆ†æœ¨ã¯å„éšå±¤ãŒå…¨ã¦åŸ‹ã¾ã£ãŸã‚‰æ¬¡ã®æ®µã‚’åŸ‹ã‚å§‹ã‚ã‚‹. ã—ãŸãŒã£ã¦, </p>
+<p class="tex">$$2^h \le N &lt; 2^&#123;h&#43;1&#125;$$</p>
+<p>ã‚ˆã£ã¦, <span class="tex">$h &#61; O&#40;\log N&#41;$</span>.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»\û¬rootassigneeÀ§cell_idÙ$e99a2952-e0be-4afb-8ee1-6438828ceb01¹depends_on_disabled_cellsÂ§runtimeÍô§erroredÂÙ$fc872510-e7b7-11eb-0f83-ed2e18af538fˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ[<div class="markdown"><h1>Chapter 10</h1>
+<h4>Nicetak</h4>
+<p>September 19, 2021</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛúno"¬rootassigneeÀ§cell_idÙ$fc872510-e7b7-11eb-0f83-ed2e18af538f¹depends_on_disabled_cellsÂ§runtimeÎÑ´ §erroredÂÙ$a1da9aaa-f90b-4f67-95df-f79ff214dad5ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙÍ<div class="markdown"><h2>10.2</h2>
+<p>ç©ºã®ãƒ’ãƒ¼ãƒ—ã«3å€‹ã®æ•´æ•°5, 6, 1ã‚’ã“ã®é †ã«æŒ¿å…¥ã—ã¦å¾—ã‚‰ã‚Œã‚‹ãƒ’ãƒ¼ãƒ—ã«ã¤ã„ã¦, é…åˆ—ã§è¡¨ã—ãŸæ™‚ã®æ§˜å­ã‚’ç¤ºã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ÷»&¬rootassigneeÀ§cell_idÙ$a1da9aaa-f90b-4f67-95df-f79ff214dad5¹depends_on_disabled_cellsÂ§runtimeÍø§erroredÂ±cell_dependencies‹Ù$a6075125-eb1f-4486-9e51-185ff559dbcd„´precedence_heuristic§cell_idÙ$a6075125-eb1f-4486-9e51-185ff559dbcd´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$2c6c91c2-9c7d-4ae2-9d0d-f66e891845bd„´precedence_heuristic§cell_idÙ$2c6c91c2-9c7d-4ae2-9d0d-f66e891845bd´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$c015fddb-a32c-4ade-ba0c-336b0197fc00„´precedence_heuristic§cell_idÙ$c015fddb-a32c-4ade-ba0c-336b0197fc00´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$0a789e1a-f359-445a-bacf-f5bebdbf91f3„´precedence_heuristic§cell_idÙ$0a789e1a-f359-445a-bacf-f5bebdbf91f3´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$f05593a8-cdd7-4ae0-bfe9-6d70a17c356d„´precedence_heuristic§cell_idÙ$f05593a8-cdd7-4ae0-bfe9-6d70a17c356d´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$7a15992c-8c54-41cf-bd3f-4bb657b922ed„´precedence_heuristic§cell_idÙ$7a15992c-8c54-41cf-bd3f-4bb657b922ed´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$89478c0a-9a09-4bf6-96a4-d166d184e126„´precedence_heuristic§cell_idÙ$89478c0a-9a09-4bf6-96a4-d166d184e126´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$12155e72-f81e-4506-bb4a-087144245cee„´precedence_heuristic§cell_idÙ$12155e72-f81e-4506-bb4a-087144245cee´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$e99a2952-e0be-4afb-8ee1-6438828ceb01„´precedence_heuristic§cell_idÙ$e99a2952-e0be-4afb-8ee1-6438828ceb01´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$fc872510-e7b7-11eb-0f83-ed2e18af538f„´precedence_heuristic§cell_idÙ$fc872510-e7b7-11eb-0f83-ed2e18af538f´downstream_cells_map¥Dates‘Ù$fc872510-e7b7-11eb-0f83-ed2e18af538f²upstream_cells_map†§@md_str¥Dates‘Ù$fc872510-e7b7-11eb-0f83-ed2e18af538f¬Dates.format«Dates.today°Dates.DateFormat¨getindexÙ$a1da9aaa-f90b-4f67-95df-f79ff214dad5„´precedence_heuristic§cell_idÙ$a1da9aaa-f90b-4f67-95df-f79ff214dad5´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindex´cell_execution_order›Ù$fc872510-e7b7-11eb-0f83-ed2e18af538fÙ$a6075125-eb1f-4486-9e51-185ff559dbcdÙ$12155e72-f81e-4506-bb4a-087144245ceeÙ$a1da9aaa-f90b-4f67-95df-f79ff214dad5Ù$f05593a8-cdd7-4ae0-bfe9-6d70a17c356dÙ$0a789e1a-f359-445a-bacf-f5bebdbf91f3Ù$7a15992c-8c54-41cf-bd3f-4bb657b922edÙ$2c6c91c2-9c7d-4ae2-9d0d-f66e891845bdÙ$e99a2952-e0be-4afb-8ee1-6438828ceb01Ù$89478c0a-9a09-4bf6-96a4-d166d184e126Ù$c015fddb-a32c-4ade-ba0c-336b0197fc00©shortpath©chap10.jl®process_status¥ready¤pathÙ\/home/runner/work/algorithm_problems/algorithm_problems/problems/chapter10/nicetak/chap10.jlªcell_order›Ù$fc872510-e7b7-11eb-0f83-ed2e18af538fÙ$a6075125-eb1f-4486-9e51-185ff559dbcdÙ$12155e72-f81e-4506-bb4a-087144245ceeÙ$a1da9aaa-f90b-4f67-95df-f79ff214dad5Ù$f05593a8-cdd7-4ae0-bfe9-6d70a17c356dÙ$0a789e1a-f359-445a-bacf-f5bebdbf91f3Ù$7a15992c-8c54-41cf-bd3f-4bb657b922edÙ$2c6c91c2-9c7d-4ae2-9d0d-f66e891845bdÙ$e99a2952-e0be-4afb-8ee1-6438828ceb01Ù$89478c0a-9a09-4bf6-96a4-d166d184e126Ù$c015fddb-a32c-4ade-ba0c-336b0197fc00¥nbpkg‡²installed_versions€°terminal_outputs€§enabledÃ·restart_recommended_msgÀ´restart_required_msgÀ­busy_packages¬instantiatedÃ«cell_inputs‹Ù$a6075125-eb1f-4486-9e51-185ff559dbcd„§cell_idÙ$a6075125-eb1f-4486-9e51-185ff559dbcd°running_disabledÂ¤codeÙ{md"""
+## 10.1
+é ‚ç‚¹æ•°ãŒ $N$ ã®äºŒåˆ†æœ¨ã«ãŠã„ã¦, é«˜ã•ãŒ $N-1$ ã¨ãªã‚‹ã‚ˆã†ãªä¾‹ã‚’ã‚ã’ã¦ãã ã•ã„.
+"""«code_foldedÃÙ$2c6c91c2-9c7d-4ae2-9d0d-f66e891845bd„§cell_idÙ$2c6c91c2-9c7d-4ae2-9d0d-f66e891845bd°running_disabledÂ¤codeÙgmd"""
+## 10.4
+å¼·å¹³è¡¡äºŒåˆ†æœ¨ã®é«˜ã•ãŒ$h = O(\log N)$ã¨ãªã‚‹ã“ã¨ã‚’ç¤ºã—ã¦ãã ã•ã„.
+"""«code_foldedÃÙ$c015fddb-a32c-4ade-ba0c-336b0197fc00„§cell_idÙ$c015fddb-a32c-4ade-ba0c-336b0197fc00°running_disabledÂ¤codeÚ~md"""
+**ç­”.**
+$N = 1$ã®æ™‚ã¯è‡ªæ˜. é ‚ç‚¹æ•° $N$ ã®æœ¨ã®è¾ºæ•°ãŒ $N- 1$ ã¨ä»®å®šã™ã‚‹.
+ä»»æ„ã®é ‚ç‚¹æ•° $N+1$ ã®æœ¨ã¯, é ‚ç‚¹æ•° $N$ã®æœ¨ã«ä¸€ã¤ã®é ‚ç‚¹ã‚’åŠ ãˆãŸã‚‚ã®ã§ã‚ã‚‹.
+ã“ã®æ“ä½œã®éš›ã«å¢—ãˆã‚‹è¾ºã®æ•°ã¯, æœ¨ã®å®šç¾©ã‹ã‚‰, 1ã§ã‚ã‚‹.
+ã—ãŸãŒã£ã¦, é ‚ç‚¹æ•° $N+1$ ã®æœ¨ã®è¾ºæ•°ã¯ $N$ ã§ã‚ã‚Š, å¸°ç´æ³•ã‹ã‚‰å‘½é¡Œã¯ç¤ºã•ã‚ŒãŸ.
+"""«code_foldedÃÙ$0a789e1a-f359-445a-bacf-f5bebdbf91f3„§cell_idÙ$0a789e1a-f359-445a-bacf-f5bebdbf91f3°running_disabledÂ¤codeÙ¼md"""
+## 10.3
+ç©ºã®ãƒ’ãƒ¼ãƒ—ã«7å€‹ã®æ•´æ•°5, 6, 1, 2, 7, 3, 4ã‚’ã“ã®é †ã«æŒ¿å…¥ã—ã¦å¾—ã‚‰ã‚Œã‚‹ãƒ’ãƒ¼ãƒ—ã«ã¤ã„ã¦, é…åˆ—ã§è¡¨ã—ãŸã¨ãã®æ§˜å­ã‚’ç¤ºã—ã¦ãã ã•ã„.
+"""«code_foldedÃÙ$f05593a8-cdd7-4ae0-bfe9-6d70a17c356d„§cell_idÙ$f05593a8-cdd7-4ae0-bfe9-6d70a17c356d°running_disabledÂ¤code¼md"""
+**ç­”.** [6, 5, 1]
+"""«code_foldedÃÙ$7a15992c-8c54-41cf-bd3f-4bb657b922ed„§cell_idÙ$7a15992c-8c54-41cf-bd3f-4bb657b922ed°running_disabledÂ¤codeÙ(md"""
+**ç­”.** [7, 6, 4, 2, 5, 1, 3]
+"""«code_foldedÃÙ$89478c0a-9a09-4bf6-96a4-d166d184e126„§cell_idÙ$89478c0a-9a09-4bf6-96a4-d166d184e126°running_disabledÂ¤codeÙcmd"""
+## 10.5
+é ‚ç‚¹æ•°ãŒ $N$ ã®æœ¨ã®è¾ºæ•°ãŒ $N-1$ã§ã‚ã‚‹ã“ã¨ã‚’ç¤ºã—ã¦ãã ã•ã„.
+"""«code_foldedÃÙ$12155e72-f81e-4506-bb4a-087144245cee„§cell_idÙ$12155e72-f81e-4506-bb4a-087144245cee°running_disabledÂ¤codeÙBmd"""
+**ç­”.** åŒ—æ–—ç¥æ‹³ã®ç¶™æ‰¿è€…(ä¸€å­ç›¸ä¼ã®ãŸã‚)
+"""«code_foldedÃÙ$e99a2952-e0be-4afb-8ee1-6438828ceb01„§cell_idÙ$e99a2952-e0be-4afb-8ee1-6438828ceb01°running_disabledÂ¤codeÙßmd"""
+**ç­”.** é«˜ã•$h$æ®µç›®ã«å…¥ã‚‹è¦ç´ æ•°ã¯$2^h$ã§ã‚ã‚Š, å¼·å¹³è¡¡äºŒåˆ†æœ¨ã¯å„éšå±¤ãŒå…¨ã¦åŸ‹ã¾ã£ãŸã‚‰æ¬¡ã®æ®µã‚’åŸ‹ã‚å§‹ã‚ã‚‹. ã—ãŸãŒã£ã¦, 
+
+$2^h \le N < 2^{h+1}$
+
+ã‚ˆã£ã¦, $h = O(\log N)$.
+"""«code_foldedÃÙ$fc872510-e7b7-11eb-0f83-ed2e18af538f„§cell_idÙ$fc872510-e7b7-11eb-0f83-ed2e18af538f°running_disabledÂ¤codeÙmmd"""
+# Chapter 10
+#### Nicetak
+ $(import Dates; Dates.format(Dates.today(), Dates.DateFormat("U d, Y")))
+"""«code_foldedÃÙ$a1da9aaa-f90b-4f67-95df-f79ff214dad5„§cell_idÙ$a1da9aaa-f90b-4f67-95df-f79ff214dad5°running_disabledÂ¤codeÙ®md"""
+## 10.2
+ç©ºã®ãƒ’ãƒ¼ãƒ—ã«3å€‹ã®æ•´æ•°5, 6, 1ã‚’ã“ã®é †ã«æŒ¿å…¥ã—ã¦å¾—ã‚‰ã‚Œã‚‹ãƒ’ãƒ¼ãƒ—ã«ã¤ã„ã¦, é…åˆ—ã§è¡¨ã—ãŸæ™‚ã®æ§˜å­ã‚’ç¤ºã—ã¦ãã ã•ã„.
+
+"""«code_foldedÃ«notebook_idÙ$ff15df42-196c-11ec-38a1-87033c023200«in_temp_dirÂ

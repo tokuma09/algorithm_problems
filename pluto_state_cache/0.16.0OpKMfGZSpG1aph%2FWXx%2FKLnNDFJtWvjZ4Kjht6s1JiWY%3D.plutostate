@@ -1,0 +1,39 @@
+Œ¥bonds€¬cell_results„Ù$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334aˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ[<div class="markdown"><h1>Chapter 15</h1>
+<h4>Nicetak</h4>
+<p>September 19, 2021</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ
+ò¬rootassigneeÀ§cell_idÙ$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334a¹depends_on_disabled_cellsÂ§runtimeÎíş§erroredÂÙ$a2374e54-6385-4e09-83fc-6933087d0bb2ˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÙ¨<div class="markdown"><h2>15.1</h2>
+<p>15.4.3ç¯€ã§ç´¹ä»‹ã—ãŸã€Œæœ€å°å…¨åŸŸæœ¨ã®åŸºæœ¬ã‚«ãƒƒãƒˆã‚»ãƒƒãƒˆã«é–¢ã™ã‚‹æ€§è³ªã€ã‚’è¨¼æ˜ã—ã¦ãã ã•ã„.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ–_Üf¬rootassigneeÀ§cell_idÙ$a2374e54-6385-4e09-83fc-6933087d0bb2¹depends_on_disabled_cellsÂ§runtimeÍ!4§erroredÂÙ$f29af91b-606e-4357-b542-9a6f4624a58eˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚo<div class="markdown"><blockquote>
+<h5>æœ€å°å…¨åŸŸæœ¨ã®åŸºæœ¬ã‚«ãƒƒãƒˆã‚»ãƒƒãƒˆã«é–¢ã™ã‚‹æ€§è³ª</h5>
+<p>é€£çµãªé‡ã¿ä»˜ãç„¡å‘ã‚°ãƒ©ãƒ•<span class="tex">$G$</span>ã«ãŠã„ã¦, <span class="tex">$T$</span>ã‚’æœ€å°å…¨åŸŸæœ¨ã¨ã—ã¾ã™. <span class="tex">$T$</span>ã«å«ã¾ã‚Œã‚‹è¾º<span class="tex">$e$</span>ã‚’1ã¤ã¨ã£ã¦, <span class="tex">$T, e$</span>ã«é–¢ã™ã‚‹åŸºæœ¬ã‚«ãƒƒãƒˆã‚»ãƒƒãƒˆã‚’<span class="tex">$C$</span>ã¨ã—ã¾ã™. ã“ã®ã¨ã, <span class="tex">$C$</span>ã«å«ã¾ã‚Œã‚‹è¾ºã®ã†ã¡, è¾º<span class="tex">$e$</span>ã¯é‡ã¿ãŒæœ€å°ã®è¾ºã¨ãªã£ã¦ã„ã¾ã™.</p>
+</blockquote>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ–eÎ¬rootassigneeÀ§cell_idÙ$f29af91b-606e-4357-b542-9a6f4624a58e¹depends_on_disabled_cellsÂ§runtimeÍø§erroredÂÙ$4b3556c3-2fb5-4871-b4b2-a1aa9dfdee4dˆ¦queuedÂ±published_objects€§runningÂ¦output…¤bodyÚÛ<div class="markdown"><p><span class="tex">$C$</span>ã«å«ã¾ã‚Œã‚‹ä»»æ„ã®è¾º<span class="tex">$f$</span>ã‚’ã¨ã£ãŸã¨ã,</p>
+<p class="tex">$$T^&#123;\prime&#125; &#61; T - e &#43; f$$</p>
+<p>ãªã‚‹<span class="tex">$T^&#123;\prime&#125;$</span>ã‚‚å…¨åŸŸæœ¨ã§ã‚ã‚‹. <span class="tex">$T$</span>ãŒæœ€å°å…¨åŸŸæœ¨ã§ã‚ã‚‹ä»®å®šã‹ã‚‰,</p>
+<p class="tex">$$w&#40;T&#41; \le w&#40;T^&#123;\prime&#125;&#41; &#61; w&#40;T&#41; - w&#40;e&#41; &#43; w&#40;f&#41;$$</p>
+<p class="tex">$$\therefore w&#40;e&#41; \le w&#40;f&#41;$$</p>
+<p>ã“ã‚Œã¯ä»»æ„ã®<span class="tex">$f \in C$</span>ã«å¯¾ã—ã¦æˆã‚Šç«‹ã¤ã®ã§, è¾º<span class="tex">$e$</span>ã®é‡ã¿ã¯<span class="tex">$C$</span>ã®ã†ã¡æœ€å°ã§ã‚ã‚‹.</p>
+</div>°persist_js_stateÂ¤mime©text/html²last_run_timestampËAØQÛ–f9¬rootassigneeÀ§cell_idÙ$4b3556c3-2fb5-4871-b4b2-a1aa9dfdee4d¹depends_on_disabled_cellsÂ§runtimeÍ"`§erroredÂ±cell_dependencies„Ù$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334a„´precedence_heuristic§cell_idÙ$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334a´downstream_cells_map¥Dates‘Ù$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334a²upstream_cells_map†§@md_str¥Dates‘Ù$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334a¬Dates.format«Dates.today°Dates.DateFormat¨getindexÙ$a2374e54-6385-4e09-83fc-6933087d0bb2„´precedence_heuristic§cell_idÙ$a2374e54-6385-4e09-83fc-6933087d0bb2´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$f29af91b-606e-4357-b542-9a6f4624a58e„´precedence_heuristic§cell_idÙ$f29af91b-606e-4357-b542-9a6f4624a58e´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindexÙ$4b3556c3-2fb5-4871-b4b2-a1aa9dfdee4d„´precedence_heuristic§cell_idÙ$4b3556c3-2fb5-4871-b4b2-a1aa9dfdee4d´downstream_cells_map€²upstream_cells_map‚§@md_str¨getindex´cell_execution_order”Ù$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334aÙ$a2374e54-6385-4e09-83fc-6933087d0bb2Ù$f29af91b-606e-4357-b542-9a6f4624a58eÙ$4b3556c3-2fb5-4871-b4b2-a1aa9dfdee4d©shortpath©chap15.jl®process_status¥ready¤pathÙ\/home/runner/work/algorithm_problems/algorithm_problems/problems/chapter15/nicetak/chap15.jlªcell_order”Ù$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334aÙ$a2374e54-6385-4e09-83fc-6933087d0bb2Ù$f29af91b-606e-4357-b542-9a6f4624a58eÙ$4b3556c3-2fb5-4871-b4b2-a1aa9dfdee4d¥nbpkg‡²installed_versions€°terminal_outputs€§enabledÃ·restart_recommended_msgÀ´restart_required_msgÀ­busy_packages¬instantiatedÃ«cell_inputs„Ù$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334a„§cell_idÙ$1a1e0d42-0a3a-11ec-2a0b-fdb6a66c334a°running_disabledÂ¤codeÙmmd"""
+# Chapter 15
+#### Nicetak
+ $(import Dates; Dates.format(Dates.today(), Dates.DateFormat("U d, Y")))
+"""«code_foldedÃÙ$a2374e54-6385-4e09-83fc-6933087d0bb2„§cell_idÙ$a2374e54-6385-4e09-83fc-6933087d0bb2°running_disabledÂ¤codeÙˆmd"""
+## 15.1
+15.4.3ç¯€ã§ç´¹ä»‹ã—ãŸã€Œæœ€å°å…¨åŸŸæœ¨ã®åŸºæœ¬ã‚«ãƒƒãƒˆã‚»ãƒƒãƒˆã«é–¢ã™ã‚‹æ€§è³ªã€ã‚’è¨¼æ˜ã—ã¦ãã ã•ã„.
+"""«code_foldedÃÙ$f29af91b-606e-4357-b542-9a6f4624a58e„§cell_idÙ$f29af91b-606e-4357-b542-9a6f4624a58e°running_disabledÂ¤codeÚsmd"""
+> ##### æœ€å°å…¨åŸŸæœ¨ã®åŸºæœ¬ã‚«ãƒƒãƒˆã‚»ãƒƒãƒˆã«é–¢ã™ã‚‹æ€§è³ª
+> é€£çµãªé‡ã¿ä»˜ãç„¡å‘ã‚°ãƒ©ãƒ•$G$ã«ãŠã„ã¦, $T$ã‚’æœ€å°å…¨åŸŸæœ¨ã¨ã—ã¾ã™. $T$ã«å«ã¾ã‚Œã‚‹è¾º$e$ã‚’1ã¤ã¨ã£ã¦, $T, e$ã«é–¢ã™ã‚‹åŸºæœ¬ã‚«ãƒƒãƒˆã‚»ãƒƒãƒˆã‚’$C$ã¨ã—ã¾ã™. ã“ã®ã¨ã, $C$ã«å«ã¾ã‚Œã‚‹è¾ºã®ã†ã¡, è¾º$e$ã¯é‡ã¿ãŒæœ€å°ã®è¾ºã¨ãªã£ã¦ã„ã¾ã™.
+"""«code_foldedÃÙ$4b3556c3-2fb5-4871-b4b2-a1aa9dfdee4d„§cell_idÙ$4b3556c3-2fb5-4871-b4b2-a1aa9dfdee4d°running_disabledÂ¤codeÚemd"""
+ $C$ã«å«ã¾ã‚Œã‚‹ä»»æ„ã®è¾º$f$ã‚’ã¨ã£ãŸã¨ã,
+
+$T^{\prime} = T - e + f$
+
+ãªã‚‹$T^{\prime}$ã‚‚å…¨åŸŸæœ¨ã§ã‚ã‚‹. $T$ãŒæœ€å°å…¨åŸŸæœ¨ã§ã‚ã‚‹ä»®å®šã‹ã‚‰,
+
+$w(T) \le w(T^{\prime}) = w(T) - w(e) + w(f)$
+$\therefore w(e) \le w(f)$
+
+ã“ã‚Œã¯ä»»æ„ã®$f \in C$ã«å¯¾ã—ã¦æˆã‚Šç«‹ã¤ã®ã§, è¾º$e$ã®é‡ã¿ã¯$C$ã®ã†ã¡æœ€å°ã§ã‚ã‚‹.
+
+"""«code_foldedÃ«notebook_idÙ$13626b8a-196c-11ec-0a1c-1fa784fced59«in_temp_dirÂ
