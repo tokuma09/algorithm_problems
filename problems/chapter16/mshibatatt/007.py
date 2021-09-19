@@ -59,7 +59,7 @@ def main():
             if G[i][j] == '#':
                 num_blank += 1
                 v = i*c + j
-                # if adjacent in row, cannot both 0
+                # if adjacent in row
                 if i+1 < r and G[i+1][j] == '#':
                     num_adjacent += 1
                     newv = v + r*c
@@ -67,7 +67,7 @@ def main():
                     ff.add_edge(v, newv, float('inf'))
                     ff.add_edge(v+c, newv, float('inf'))
                     
-                # if adjacent in col, cannot both 1
+                # if adjacent in col
                 if j+1 < c and G[i][j+1] == '#':
                     num_adjacent += 1
                     newv = v + r*c*2
