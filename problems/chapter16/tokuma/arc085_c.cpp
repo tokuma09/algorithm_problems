@@ -64,7 +64,7 @@ struct Graph
 
 struct FordFulkerson
 {
-    static const long long INF = 1LL << 59; // 無限大を表す値を適切に
+    static const long long INF = 1LL << 55; // 無限大を表す値を適切に
     vector<int> seen;
 
     FordFulkerson() {}
@@ -72,7 +72,7 @@ struct FordFulkerson
     // 残余グラフ上で s-t パスを見つける (深さ優先探索)
     // 返り値は s-t パス上の容量の最小値 (見つからなかったら 0)
     // f: s から v へ到達した過程の各辺の容量の最小値
-    int fodfs(Graph &G, int v, int t, long long f)
+    long long fodfs(Graph &G, int v, int t, long long f)
     {
         // 終端 t に到達したらリターン
         if (v == t)
@@ -111,7 +111,7 @@ struct FordFulkerson
 
     // グラフ G の s-t 間の最大流量を求める
     // ただしリターン時に G は残余グラフになる
-    int solve(Graph &G, int s, int t)
+    long long solve(Graph &G, int s, int t)
     {
         long long res = 0;
 
@@ -193,6 +193,5 @@ int main()
 
     // sからtにかけて
     FordFulkerson ff;
-    long long res = ff.solve(G, s, t);
-    cout << max_val - res << endl;
+    cout << max_val - ff.solve(G, s, t) << endl;
 }
