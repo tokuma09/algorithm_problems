@@ -5,7 +5,6 @@ using namespace std;
 using Graph = vector<vector<int>>;
 
 //木の上の探索
-vector<int> depth;
 vector<bool> used;
 
 void dfs(const Graph &G, int v, int p = -1)
@@ -17,7 +16,11 @@ void dfs(const Graph &G, int v, int p = -1)
     // 自分の子ノードに向かって探索
     for (auto child : G[v])
     {
-
+        // 親ノードを参照していればスキップ
+        if (child == p)
+        {
+            continue;
+        }
         dfs(G, child, v);
 
         // 子ノードが再帰探索した場合に利用されていれば、existをTrueに
