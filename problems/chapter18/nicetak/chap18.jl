@@ -123,7 +123,8 @@ $\mathbf{x}[v] = \begin{cases} 1 & v \in S \\ 0 & v \notin S \end{cases}$
 
 $\begin{aligned}
 &\max_{\mathbf{x}} \iota^T\mathbf{x} \\
-\text{s.t. }& \mathbf{x}[v] + \mathbf{x}[u] \le 1 & \text{ for all } (v, u) \in E
+\text{s.t. }& \mathbf{x}[v] + \mathbf{x}[u] \le 1 & \text{for all } (v, u) \in E　\\
+& \mathbf{x}[v] \in \{1, 0\} & \text{for all } v \in V
 \end{aligned}$
 
 で定義される.
